@@ -12,28 +12,50 @@
     width: 90%;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
+    background-color: #017A4F;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 3px 3px 9px 3px var(--sombra);
 }
 
 .cartela__capa {
     background-position: center;
     background-size: cover;
+    margin: 1rem;
 }
 
 .cartela__capa > img {
     border-radius: 10px;
     width: 90%;
+    box-shadow: 3px 3px 9px 3px var(--sombra);
 }
 
 .bolas {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 1rem;
 }
 
 .bola {
     border: 1px solid black;
+    box-shadow: 3px 3px 9px 3px var(--sombra);
+    background-color: #fff;
     border-radius: 40px;
     align-items: center;
     width: 5rem;
     height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    font-size: 180%;
+    font-family: 'Fira Code', monospace;
+    transition: 300ms;
+}
+
+.bola:hover {
+    scale: 1.05;
 }

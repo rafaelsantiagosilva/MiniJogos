@@ -1,13 +1,24 @@
 @import url(./style.css);
 
-@media screen and (orientation: portrait){
-    .conteudo {
-        padding: 5rem 0rem;
-    }
+@media screen and (orientation: portrait) {
+	.conteudo {
+		padding: 5rem 0rem;
+	}
 
-    .card_jogo {
-        flex-wrap: wrap;
-        padding: 2rem 3rem;
-        border-radius: 0px;
+	.card_jogo {
+		flex-wrap: wrap;
+		padding: 2rem 3rem;
+		border-radius: 0px;
+	}
+
+	button.home {
+		width: 10%;
+		height: 5%;
+	}
+
+    .cartela {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
