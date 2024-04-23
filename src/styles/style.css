@@ -1,94 +1,117 @@
 @import url(./reset.min.css);
-@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 :root {
-    --cor_principal: #1959cf;
-    --cinza_claro: #ebebeb;
-    --sombra: rgba(0, 0, 0, 0.336);
+	--cor_principal: #1959cf;
+	--cinza_claro: #ebebeb;
+	--sombra: rgba(0, 0, 0, 0.336);
+	--cor-footer: #e4e4e4;
 }
 
 body {
-    background: var(--cinza_claro);
+	background: var(--cor-footer);
 }
 
 .header_principal {
-    background-color: var(--cor_principal);
-    width: 100%;
-    text-align: center;
-    color: #fff;
-    padding: 2rem;
-    font-family: 'Roboto', sans-serif;
-    box-shadow: 5px 5px 15px 5px var(--sombra);
+	background-color: var(--cor_principal);
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	padding: 2rem;
+	font-family: "Roboto", sans-serif;
+	box-shadow: 5px 5px 15px 5px var(--sombra);
 }
 
 .header_principal > * {
-    margin: 1rem;
+	margin: 1rem;
 }
 
 .titulo_principal {
-    font-family: 'Righteous', sans-serif;
-    font-size: 3em;
-    letter-spacing: 2px;
-    font-weight: 800;
+	font-family: "Righteous", sans-serif;
+	font-size: 3em;
+	letter-spacing: 2px;
+	font-weight: 800;
 }
 
 .subtitulo_principal {
-    font-size: 140%;
-    color: var(--cinza_claro);
+	font-size: 140%;
+	color: var(--cinza_claro);
 }
 
 .conteudo {
-    padding: 0 10rem;
+	padding: 2rem 10rem;
+	background-color: var(--cinza_claro);
 }
 
 .card_jogo {
-    background-color: #fff;
-    box-shadow: 3px 3px 9px 3px var(--sombra);
-    padding: 2rem;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-    text-decoration: none;
-    color: #000;
-    font-family: 'Roboto', sans-serif;
-    transition: 400ms;
+	background-color: #fff;
+	box-shadow: 3px 3px 9px 3px var(--sombra);
+	padding: 2rem;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+	text-decoration: none;
+	color: #000;
+	font-family: "Roboto", sans-serif;
+	transition: 400ms;
 }
 
 .card_jogo:hover {
-    scale: 1.1;
+	scale: 1.1;
 }
 
 .card_jogo__titulo {
-    font-size: 1.8rem;
-    font-weight: 600;
+	font-size: 1.8rem;
+	font-weight: 600;
 }
 
 .card_jogo__descricao {
-    line-height: 1.8rem;
-    font-size: 1.4rem;
-    margin-top: 1rem;
-    min-width: 70%;
+	line-height: 1.8rem;
+	font-size: 1.4rem;
+	margin-top: 1rem;
+	min-width: 70%;
 }
 
 .card_jogo__imagem {
-    max-width: 70%;
+	max-width: 70%;
 }
 
 .card_jogo__imagem > img {
-    width: 100%;
-    border-radius: 5px;
+	width: 100%;
+	border-radius: 5px;
+}
+
+.btn {
+	font-size: 2rem;
+	padding: 1.5rem;
+	border-radius: 10px;
+	border: none;
+	box-shadow: 3px 3px 9px 3px var(--sombra);
+	cursor: pointer;
+	transition: 200ms;
+	background: var(--cor_principal);
+	color: #fff;
+}
+
+.btn:hover {
+	background-color: #1348aa;
+}
+
+.btn:active {
+	box-shadow: none;
 }
 
 .footer_principal {
-    width: 100%;
-    background-color: rgb(228, 228, 228);
-    padding: 2rem;
-    text-align: center;
-    position: relative;
-    font-size: 1.3rem;
-    font-family: 'Roboto', sans-serif;
+	width: 100%;
+	background-color: var(--cor-footer);
+	padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	font-size: 1.3rem;
+	font-family: "Roboto", sans-serif;
 }
