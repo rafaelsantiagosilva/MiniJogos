@@ -16,9 +16,9 @@
 		height: 5%;
 	}
 
-    .cartela {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+	.cartela {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 }
