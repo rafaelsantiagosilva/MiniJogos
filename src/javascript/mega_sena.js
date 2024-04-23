@@ -24,7 +24,7 @@ document.getElementById("btn_sortear").addEventListener("click", () => {
 });
 
 function gerarNumeroAleatorio() {
-     let numeroAleatorio = Math.round(Math.random() * 60).toString()
+     let numeroAleatorio = Math.round(Math.random() * 59 + 1).toString()
 
      if (numeroAleatorio.length < 2) {
           numeroAleatorio = "0" + numeroAleatorio;
