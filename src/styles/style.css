@@ -1,0 +1,83 @@
+@import url(./reset.min.css);
+
+:root {
+    --cor_principal: #1959cf;
+    --cinza_claro: #f9f9f9;    
+}
+
+.header_principal {
+    background-color: var(--cor_principal);
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    padding: 2rem;
+}
+
+.header_principal > * {
+    margin: 1rem;
+}
+
+.titulo_principal {
+    font-size: 3em;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.subtitulo_principal {
+    font-size: 140%;
+    color: var(--cinza_claro);
+}
+
+.conteudo {
+    padding: 0 10rem;
+}
+
+.card_jogo {
+    background-color: var(--cinza_claro);
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    color: #000;
+    font-family: sans-serif;
+    transition: 400ms;
+}
+
+.card_jogo:hover {
+    scale: 1.1;
+}
+
+.card_jogo__titulo {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.card_jogo__descricao {
+    line-height: 1.6rem;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    width: 80%;
+}
+
+.card_jogo__imagem {
+    width: 80%;
+}
+
+.card_jogo__imagem > img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.footer_principal {
+    width: 100%;
+    background-color: var(--cinza_claro);
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    font-size: 1.3rem;
+}

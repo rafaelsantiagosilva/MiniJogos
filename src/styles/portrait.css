@@ -1,0 +1,12 @@
+@import url(./style.css);
+
+@media screen and (orientation: portrait){
+    .conteudo {
+        padding: 5rem 0rem;
+    }
+
+    .card_jogo {
+        flex-wrap: wrap;
+        padding: 2rem 3rem;
+    }
+}
