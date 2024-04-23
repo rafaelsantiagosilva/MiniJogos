@@ -4,7 +4,11 @@ document.getElementById("btn_sortear").addEventListener("click", () => {
 
      let index = 0;
      while (index < 6) {
-          let numeroAleatorio = gerarNumeroAleatorio();
+          let numeroAleatorio = 0;
+
+          do {
+               numeroAleatorio = gerarNumeroAleatorio();
+          } while (numeroExisteNoArray(numerosAleatorios, numeroAleatorio));
 
           if (!numeroExisteNoArray(numerosAleatorios, numeroAleatorio))
                numerosAleatorios.push(numeroAleatorio);
