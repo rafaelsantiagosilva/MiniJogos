@@ -8,5 +8,6 @@
     .card_jogo {
         flex-wrap: wrap;
         padding: 2rem 3rem;
+        border-radius: 0px;
     }
 }
