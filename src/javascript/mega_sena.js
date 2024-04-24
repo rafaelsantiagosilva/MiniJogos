@@ -1,4 +1,6 @@
-document.getElementById("btn_sortear").addEventListener("click", () => {
+document.getElementById("btn_sortear").addEventListener("click", sortearMegaSena);
+
+function sortearMegaSena() {
      let numerosAleatorios = [];
      const BOLAS_DOM = document.getElementsByClassName("bola");
 
@@ -10,34 +12,29 @@ document.getElementById("btn_sortear").addEventListener("click", () => {
                numeroAleatorio = gerarNumeroAleatorio();
           } while (numeroExisteNoArray(numerosAleatorios, numeroAleatorio));
 
-          if (!numeroExisteNoArray(numerosAleatorios, numeroAleatorio))
-               numerosAleatorios.push(numeroAleatorio);
-
+          numerosAleatorios.push(numeroAleatorio);
           index++;
      }
 
      numerosAleatorios = ordenarEmOrdemCrescente(numerosAleatorios);
 
-     for (let i in numerosAleatorios) {
+     for (let i in numerosAleatorios)
           BOLAS_DOM[i].innerText = numerosAleatorios[i];
-     }
-});
+}
 
 function gerarNumeroAleatorio() {
      let numeroAleatorio = Math.round(Math.random() * 59 + 1).toString()
 
-     if (numeroAleatorio.length < 2) {
+     if (numeroAleatorio.length < 2)
           numeroAleatorio = "0" + numeroAleatorio;
-     }
 
      return numeroAleatorio;
 }
 
 function numeroExisteNoArray(array, numero) {
-     for (let i = 0; i < array.length; i++) {
+     for (let i = 0; i < array.length; i++)
           if (array[i] == numero)
                return true;
-     }
 
      return false;
 }
