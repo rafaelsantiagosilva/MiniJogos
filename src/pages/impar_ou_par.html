@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ímpar ou Par!</title>
+		<link
+			rel="shortcut icon"
+			href="../assets/icons/favicon.ico"
+			type="image/x-icon"
+		/>
+		<link rel="stylesheet" href="../styles/style.css" />
+		<link rel="stylesheet" href="../styles/portrait.css" />
+		<link rel="stylesheet" href="../styles/impar_ou_par.css" />
+		<script
+			type="text/javascript"
+			src="../javascript/impar_ou_par.js"
+			defer
+		></script>
+	</head>
+	<body>
+		<a href="../../index.html"><button class="home"></button></a>
+		<header class="header_principal">
+			<h1 class="titulo_principal">Ímpar ou Par!</h1>
+			<h2 class="subtitulo_principal">
+				Escolha uma opção e um número para jogar!
+			</h2>
+		</header>
+
+		<main class="conteudo">
+			<section class="form">
+				<div class="inputs">
+					<div class="inputs__input_group">
+						<label for="rd_impar">Ímpar</label>
+						<input type="radio" name="rd_ip" id="rd_impar" checked />
+					</div>
+					<div class="inputs__input_group">
+						<label for="rd_par">Par</label>
+						<input type="radio" name="rd_ip" id="rd_par" />
+					</div>
+					<div class="inputs__input_group">
+						<label for="inp_numero">Número: </label>
+						<input
+							type="number"
+							name="inp_numero"
+							id="inp_numero"
+							step="1"
+							value="0"
+							max="5"
+							min="0"
+						/>
+					</div>
+					<input type="button" class="btn" id="btn_jogar" value="Jogar" />
+				</div>
+			</section>
+			<div class="game">
+				<h3 class="game__titulo">Jogue!</h3>
+				<div class="game__ringue">
+					<div class="game__player">
+						<h4 class="player__titulo">Você</h4>
+						<img
+							src="../assets/icons/impar_ou_par/interrogacao.png"
+							alt="?"
+							class="mao"
+							id="mao_do_player"
+						/>
+					</div>
+					<span class="game__versus">Vs</span>
+					<div class="game__bot">
+						<h4 class="bot__titulo">Computador</h4>
+						<img
+							src="../assets/icons/impar_ou_par/interrogacao.png"
+							alt="?"
+							class="mao"
+							id="mao_do_bot"
+						/>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="footer_principal">&copy;Rafael Santiago</footer>
+	</body>
+</html>
