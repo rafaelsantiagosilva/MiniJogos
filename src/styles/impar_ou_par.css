@@ -1,3 +1,5 @@
+@import url(./game.css);
+
 .form,
 .inputs,
 .inputs__input_group {
@@ -53,53 +55,6 @@ input[type="number"]::selection {
 	background-color: none;
 }
 
-.game {
-	display: flex;
-	flex-direction: column;
-	padding: 2rem;
-}
-
-.game__titulo {
-	text-align: center;
-	font-size: 300%;
-	font-weight: 800;
-	margin: 1rem;
-	color: var(--cor_principal);
-     text-shadow: -2px -4px 1px white;
-}
-
-.game img {
-	width: 25%;
-	height: 25%;
-}
-
-.game__ringue {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.game__versus {
-	font-size: 200%;
-	font-weight: 800;
-	color: var(--cor_principal);
-     text-shadow: -2px -4px 1px white;
-}
-
-.game__player,
-.game__bot {
-	text-align: center;
-	margin: 2rem;
-}
-
-.player__titulo,
-.bot__titulo {
-	margin: 1rem;
-	font-weight: 800;
-	font-size: 150%;
-	color: var(--cor_principal);
-     text-shadow: -2px -4px 1px white;
-}
 
 @keyframes animacao_mao_do_player {
 	0% {
@@ -151,62 +106,4 @@ input[type="number"]::selection {
 
 .mao_do_bot_animada {
 	animation: animacao_mao_do_bot 10s infinite ease;
-}
-
-@media screen and (orientation: portrait) {
-	.game__ringue {
-		flex-wrap: wrap;
-	}
-
-	@keyframes animacao_mao_do_player {
-		0% {
-			rotate: 180deg;
-		}
-
-		25% {
-			rotate: 120deg;
-		}
-
-		50% {
-			rotate: 180deg;
-		}
-
-		75% {
-			rotate: 240deg;
-		}
-
-		100% {
-			rotate: 180deg;
-		}
-	}
-
-	.mao_do_player_animada {
-		animation: animacao_mao_do_player 10s infinite ease-in-out;
-	}
-
-	@keyframes animacao_mao_do_bot {
-		0% {
-			rotate: 0deg;
-		}
-
-		25% {
-			rotate: -60deg;
-		}
-
-		50% {
-			rotate: 0deg;
-		}
-
-		75% {
-			rotate: 60deg;
-		}
-
-		100% {
-			rotate: 0deg;
-		}
-	}
-
-	.mao_do_bot_animada {
-		animation: animacao_mao_do_bot 10s infinite ease;
-	}
 }

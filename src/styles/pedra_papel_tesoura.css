@@ -1,0 +1,32 @@
+@import url(./game.css);
+
+html {
+     scroll-behavior: smooth;
+}
+
+.opcoes {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.opcao {
+	display: flex;
+	justify-content: center;
+	max-width: 20rem;
+	border-radius: 10px;
+	padding: 2rem;
+	box-shadow: 3px 3px 9px 3px var(--sombra);
+	transition: 300ms;
+	cursor: pointer;
+     margin: 2rem auto;
+}
+
+.opcao:hover {
+	scale: 1.1;
+}
+
+.opcao > img {
+	width: 40%;
+}

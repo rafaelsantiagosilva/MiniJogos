@@ -11,10 +11,10 @@
 		/>
 		<link rel="stylesheet" href="../styles/style.css" />
 		<link rel="stylesheet" href="../styles/portrait.css" />
-		<link rel="stylesheet" href="../styles/impar_ou_par.css" />
+		<link rel="stylesheet" href="../styles/pedra_papel_tesoura.css" />
 		<script
 			type="text/javascript"
-			src="../javascript/impar_ou_par.js"
+			src="../javascript/pedra_papel_tesoura.js"
 			defer
 		></script>
 	</head>
@@ -22,13 +22,54 @@
 		<a href="../../index.html"><button class="home"></button></a>
 		<header class="header_principal">
 			<h1 class="titulo_principal">Pedra, Papel, Tesoura!</h1>
-			<h2 class="subtitulo_principal">
-                    Clique em uma das opções para jogar!
-               </h2>
+			<h2 class="subtitulo_principal">Clique em uma das opções para jogar!</h2>
 		</header>
 
 		<main class="conteudo">
-			
+			<section class="opcoes">
+				<a href="#game" class="opcao" id="pedra">
+					<img
+						src="../assets/icons/pedra_papel_tesoura/pedra.png"
+						alt="Ícone de uma pedra cinza."
+					/>
+				</a>
+				<a href="#game" class="opcao" id="papel">
+					<img
+						src="../assets/icons/pedra_papel_tesoura/papel.png"
+						alt="Ícone de um papel com linhas escritas."
+					/>
+				</a>
+				<a href="#game" class="opcao" id="tesoura">
+					<img
+						src="../assets/icons/pedra_papel_tesoura/tesoura.png"
+						alt="Ícone de uma tesoura com pegador vermelho."
+					/>
+				</a>
+			</section>
+			<div class="game" id="game">
+				<h3 class="game__titulo">Jogue!</h3>
+				<div class="game__ringue">
+					<div class="game__player">
+						<h4 class="player__titulo">Você</h4>
+						<img
+							src="../assets/icons/impar_ou_par/interrogacao.png"
+							alt="?"
+							class="mao"
+							id="mao_do_player"
+						/>
+					</div>
+					<span class="game__versus">Vs</span>
+					<div class="game__bot">
+						<h4 class="bot__titulo">Computador</h4>
+						<img
+							src="../assets/icons/impar_ou_par/interrogacao.png"
+							alt="?"
+							class="mao"
+							id="mao_do_bot"
+						/>
+					</div>
+				</div>
+			</div>
 		</main>
 
 		<footer class="footer_principal">&copy;Rafael Santiago</footer>
