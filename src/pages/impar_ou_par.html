@@ -10,8 +10,8 @@
 			type="image/x-icon"
 		/>
 		<link rel="stylesheet" href="../styles/style.css" />
-		<link rel="stylesheet" href="../styles/portrait.css" />
 		<link rel="stylesheet" href="../styles/impar_ou_par.css" />
+		<link rel="stylesheet" href="../styles/portrait.css" />
 		<script
 			type="text/javascript"
 			src="../javascript/impar_ou_par.js"
@@ -19,7 +19,7 @@
 		></script>
 	</head>
 	<body>
-		<a href="../../index.html"><button class="home"></button></a>
+		<button onclick="window.history.back()" class="btn_back"></button>
 		<header class="header_principal">
 			<h1 class="titulo_principal">Ímpar ou Par!</h1>
 			<h2 class="subtitulo_principal">
@@ -30,11 +30,11 @@
 		<main class="conteudo">
 			<section class="form">
 				<div class="inputs">
-					<div class="inputs__input_group">
+					<div class="inputs__input_group inputs__input_group_radio">
 						<label for="rd_impar">Ímpar</label>
 						<input type="radio" name="rd_ip" id="rd_impar" checked />
 					</div>
-					<div class="inputs__input_group">
+					<div class="inputs__input_group inputs__input_group_radio">
 						<label for="rd_par">Par</label>
 						<input type="radio" name="rd_ip" id="rd_par" />
 					</div>
@@ -50,19 +50,24 @@
 							max="5"
 						/>
 					</div>
-					<input type="button" class="btn" id="btn_jogar" value="Jogar" />
+					<a href="#game"
+						><input type="button" class="btn" id="btn_jogar" value="Jogar"
+					/></a>
 				</div>
 			</section>
-			<div class="game">
-				<h3 class="game__titulo">Jogue!</h3>
+			<div class="game" id="game">
+				<h3 class="game__titulo" id="game__titulo">Jogue!</h3>
+				<h4 class="game__titulo game__resultado">
+					Resultado: <span id="resultado">0</span>
+				</h4>
 				<div class="game__ringue">
-					<div class="game__player">
-						<h4 class="player__titulo">Você</h4>
+					<div class="game__usuario">
+						<h4 class="usuario__titulo">Você</h4>
 						<img
 							src="../assets/icons/impar_ou_par/interrogacao.png"
 							alt="?"
 							class="mao"
-							id="mao_do_player"
+							id="mao_do_usuario"
 						/>
 					</div>
 					<span class="game__versus">Vs</span>

@@ -56,7 +56,7 @@ input[type="number"]::selection {
 }
 
 
-@keyframes animacao_mao_do_player {
+@keyframes animacao_mao_do_usuario {
 	0% {
 		rotate: 90deg;
 	}
@@ -78,8 +78,8 @@ input[type="number"]::selection {
 	}
 }
 
-.mao_do_player_animada {
-	animation: animacao_mao_do_player 10s infinite ease;
+.mao_do_usuario_animada {
+	animation: animacao_mao_do_usuario 10s infinite ease;
 }
 
 @keyframes animacao_mao_do_bot {

@@ -6,7 +6,7 @@
 		padding: 5rem 0rem;
 	}
 
-	button.home {
+	button.btn_back {
 		width: 10%;
 		height: 5%;
 	}
@@ -25,13 +25,18 @@
 		align-items: center;
 	}
 
+	/* impar_ou_par.html */
+	.inputs__input_group_radio {
+		padding: 3%;
+	}
+
 	/* impar_ou_par.html, pedra_papel_tesoura.html */
 	.game__ringue {
 		flex-wrap: wrap;
 	}
 
 	/* impar_ou_par.html */
-	@keyframes animacao_mao_do_player {
+	@keyframes animacao_mao_do_usuario {
 		0% {
 			rotate: 180deg;
 		}
@@ -53,8 +58,8 @@
 		}
 	}
 
-	.mao_do_player_animada {
-		animation: animacao_mao_do_player 10s infinite ease-in-out;
+	.mao_do_usuario_animada {
+		animation: animacao_mao_do_usuario 10s infinite ease-in-out;
 	}
 
 	@keyframes animacao_mao_do_bot {

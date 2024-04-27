@@ -13,6 +13,10 @@
      text-shadow: -2px -4px 1px white;
 }
 
+.game__resultado {
+	font-size: 230%;
+}
+
 .game img {
 	width: 25%;
 	height: 25%;
@@ -31,13 +35,13 @@
      text-shadow: -2px -4px 1px white;
 }
 
-.game__player,
+.game__usuario,
 .game__bot {
 	text-align: center;
 	margin: 2rem;
 }
 
-.player__titulo,
+.usuario__titulo,
 .bot__titulo {
 	margin: 1rem;
 	font-weight: 800;
