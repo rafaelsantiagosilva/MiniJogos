@@ -1,3 +1,5 @@
+"use strict";
+
 document.getElementById("btn_sortear").addEventListener("click", sortearMegaSena);
 
 function sortearMegaSena() {
