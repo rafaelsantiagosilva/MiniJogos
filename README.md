@@ -17,3 +17,11 @@ Jogue ímpar ou par com o computador!
 
 ![Imagem do minijogo Ímpar ou Par!](./src/assets/images/views/impar_ou_par.png)
 Visualização: [https://rafaelsantiagosilva.github.io/MiniJogos/src/pages/impar_ou_par.html](https://rafaelsantiagosilva.github.io/MiniJogos/src/pages/impar_ou_par.html)
+
+
+## Pedra, Papel, Tesoura!
+
+Tente a sorte neste famoso jogo contra o computador!
+
+![Imagem do minijogo Ímpar ou Par!](./src/assets/images/views/pedra_papel_tesoura.png)
+Visualização: [https://rafaelsantiagosilva.github.io/MiniJogos/src/pages/pedra_papel_tesoura.html](https://rafaelsantiagosilva.github.io/MiniJogos/src/pages/pedra_papel_tesoura.html)
