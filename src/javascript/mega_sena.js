@@ -44,9 +44,8 @@ function numeroExisteNoArray(array, numero) {
 function ordenarEmOrdemCrescente(numerosArray) {
      for (let i = 0; i < numerosArray.length; i++) {
           for (let j = 0; j < numerosArray.length; j++) {
-               let temp = numerosArray[i];
-
                if (Number(numerosArray[i]) < Number(numerosArray[j])) {
+                    let temp = numerosArray[i];
                     numerosArray[i] = numerosArray[j];
                     numerosArray[j] = temp;
                }
