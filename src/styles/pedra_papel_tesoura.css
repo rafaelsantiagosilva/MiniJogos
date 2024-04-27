@@ -1,4 +1,5 @@
 @import url(./game.css);
+@import url(./style.css);
 
 .opcoes {
 	display: flex;
@@ -10,6 +11,7 @@
 .opcao {
 	display: flex;
 	justify-content: center;
+	background-color: #e4e4e4;
 	max-width: 20rem;
 	border-radius: 10px;
 	padding: 2rem;
@@ -21,8 +23,13 @@
 
 .opcao:hover {
 	scale: 1.1;
+	z-index: 10;
 }
 
 .opcao > img {
 	width: 40%;
+}
+
+.mao {
+	z-index: 5;
 }
