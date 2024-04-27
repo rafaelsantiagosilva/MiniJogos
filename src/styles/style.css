@@ -8,6 +8,10 @@
 	--cor-footer: #e4e4e4;
 }
 
+html {
+     scroll-behavior: smooth;
+}
+
 body {
 	background: var(--cor-footer);
 }
@@ -106,7 +110,7 @@ body {
 	box-shadow: none;
 }
 
-button.home {
+button.btn_back {
 	background-image: url(../assets/icons/seta.png);
 	background-position: center;
 	background-size: cover;
