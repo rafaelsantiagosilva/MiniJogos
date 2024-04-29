@@ -1,15 +1,12 @@
 {
-  "name": "minijogos",
-  "version": "1.0.0",
-  "description": "Uma série de minijogos que envolvem aletoriedade!",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "Rafael Santiago da Silva",
-  "license": "ISC",
-  "dependencies": {
-    "jquery": "^3.7.1"
-  }
+	"name": "minijogos",
+	"version": "1.0.0",
+	"description": "Uma série de minijogos que envolvem aletoriedade!",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "Rafael Santiago da Silva",
+	"license": "ISC"
 }
