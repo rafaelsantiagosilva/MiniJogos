@@ -3,107 +3,106 @@
 .form,
 .inputs,
 .inputs__input_group {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .inputs {
-	justify-content: space-between;
+    justify-content: space-between;
 }
 
 .inputs * {
-	font-size: 130%;
+    font-size: 130%;
 }
 
 .inputs__input_group {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .inputs__input_group * {
-	margin: 0.5rem;
+    margin: 0.5rem;
 }
 
 .inputs__input_group label {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .inputs__input_group input[type="radio"] {
-	width: 2rem;
-	height: 2rem;
-	cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
 }
 
 .inputs__input_group input[type="number"] {
-	padding: 0.5rem;
-	border-radius: 10px;
-	border: 2px solid var(--cor_principal);
-	transition: 50ms;
-	font-family: "Fira Code", monospace;
-	width: 20%;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 2px solid var(--cor_principal);
+    transition: 50ms;
+    font-family: "Fira Code", monospace;
+    width: 20%;
 }
 
 input[type="number"]:focus {
-	border: 4px solid var(--cor_principal);
+    border: 4px solid var(--cor_principal);
 }
 
 input[type="number"]::selection {
-	text-decoration: none;
-	background-color: none;
+    text-decoration: none;
+    background-color: none;
 }
 
-
 @keyframes animacao_mao_do_usuario {
-	0% {
-		rotate: 90deg;
-	}
+    0% {
+        rotate: 90deg;
+    }
 
-	25% {
-		rotate: 30deg;
-	}
+    25% {
+        rotate: 30deg;
+    }
 
-	50% {
-		rotate: 90deg;
-	}
+    50% {
+        rotate: 90deg;
+    }
 
-	75% {
-		rotate: 150deg;
-	}
+    75% {
+        rotate: 150deg;
+    }
 
-	100% {
-		rotate: 90deg;
-	}
+    100% {
+        rotate: 90deg;
+    }
 }
 
 .mao_do_usuario_animada {
-	animation: animacao_mao_do_usuario 10s infinite ease;
+    animation: animacao_mao_do_usuario 10s infinite ease;
 }
 
 @keyframes animacao_mao_do_bot {
-	0% {
-		rotate: 270deg;
-	}
+    0% {
+        rotate: 270deg;
+    }
 
-	25% {
-		rotate: 210deg;
-	}
+    25% {
+        rotate: 210deg;
+    }
 
-	50% {
-		rotate: 270deg;
-	}
+    50% {
+        rotate: 270deg;
+    }
 
-	75% {
-		rotate: 330deg;
-	}
+    75% {
+        rotate: 330deg;
+    }
 
-	100% {
-		rotate: 270deg;
-	}
+    100% {
+        rotate: 270deg;
+    }
 }
 
 .mao_do_bot_animada {
-	animation: animacao_mao_do_bot 10s infinite ease;
+    animation: animacao_mao_do_bot 10s infinite ease;
 }
