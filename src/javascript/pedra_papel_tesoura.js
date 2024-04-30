@@ -63,19 +63,19 @@ function formatarResultado(resultado, jogadaDoUsuario, jogadaDoBot) {
      const maoDoBotDOM = document.getElementById("mao_do_bot");
 
      switch (resultado) {
-          case 0:
+          case VITORIA:
                tituloDoGameDOM.innerText = "Você venceu! Parabéns!";
                resultadoDOM.innerText = `${jogadaDoUsuario.toUpperCase()} vence de ${jogadaDoBot.toUpperCase()}`;
                maoDoBotDOM.classList.remove("mao_animada");
                maoDoUsuarioDOM.classList.add("mao_animada");
                break;
-          case 1:
+          case DERROTA:
                tituloDoGameDOM.innerText = "Eu venci! Tente novamente!";
                resultadoDOM.innerText = `${jogadaDoUsuario.toUpperCase()} perde para ${jogadaDoBot.toUpperCase()}`;
                maoDoUsuarioDOM.classList.remove("mao_animada");
                maoDoBotDOM.classList.add("mao_animada");
                break;
-          case 2:
+          case EMPATE:
                tituloDoGameDOM.innerText = "Empate! Vamos jogar novamente!";
                resultadoDOM.innerText = `${jogadaDoUsuario.toUpperCase()} empata com ${jogadaDoBot.toUpperCase()}`;
                maoDoUsuarioDOM.classList.remove("mao_animada");

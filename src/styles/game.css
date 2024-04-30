@@ -1,52 +1,51 @@
 .game {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
 }
 
 .game__titulo {
-    text-align: center;
-    font-size: 300%;
-    font-weight: 800;
-    margin: 1rem;
-    color: var(--cor_principal);
-    text-shadow: -2px -4px 1px white;
+	text-align: center;
+	font-size: 300%;
+	font-weight: 800;
+	margin: 1rem;
+	color: var(--cor_principal);
+	text-shadow: -2px -4px 1px white;
 }
 
 .game__resultado {
-    font-size: 230%;
+	font-size: 230%;
 }
 
 .game img {
-    width: 25%;
-    height: 25%;
+	width: 25%;
+	height: 25%;
 }
 
 .game__ringue {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .game__versus {
-    font-size: 200%;
-    font-weight: 800;
-    color: var(--cor_principal);
-    text-shadow: -2px -4px 1px white;
+	font-size: 200%;
+	font-weight: 800;
+	color: var(--cor_principal);
+	text-shadow: -2px -4px 1px white;
 }
 
 .game__usuario,
 .game__bot {
-    text-align: center;
-    margin: 2rem;
+	text-align: center;
+	margin: 2rem;
 }
 
 .usuario__titulo,
 .bot__titulo {
-    margin: 1rem;
-    font-weight: 800;
-    font-size: 150%;
-    color: var(--cor_principal);
-    text-shadow: -2px -4px 1px white;
+	margin: 1rem;
+	font-weight: 800;
+	font-size: 150%;
+	color: var(--cor_principal);
+	text-shadow: -2px -4px 1px white;
 }
-

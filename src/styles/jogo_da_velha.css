@@ -1,0 +1,130 @@
+@import url(./game.css);
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+
+:root {
+	--borda: 5px solid var(--cor_principal);
+}
+
+.conteudo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.jogo_da_velha {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.linha {
+	display: flex;
+}
+
+.quadrado {
+	width: 10rem;
+	height: 10rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2%;
+	font-size: 300%;
+	font-weight: 800;
+	text-align: center;
+	color: rgb(12, 135, 250);
+	font-family: "Lilita One", Impact, Haettenschweiler, "Arial Narrow Bold",
+		sans-serif;
+	cursor: pointer;
+	z-index: 0;
+}
+
+.quadrado > span {
+	visibility: hidden;
+}
+
+.border-t {
+	border-top: var(--borda);
+}
+
+.border-r {
+	border-right: var(--borda);
+}
+
+.border-l {
+	border-left: var(--borda);
+}
+
+.border-b {
+	border-bottom: var(--borda);
+}
+
+.traco_vitorioso {
+	position: relative;
+	background-color: var(--cor_principal);
+	width: 30rem;
+	height: 10px;
+}
+
+.tv-diagonal {
+	top: 16rem;
+	width: 50rem;
+}
+
+.tv-vertical {
+	rotate: 90deg;
+}
+
+#tv-diagonal_1 {
+	rotate: 45deg;
+	bottom: 35rem;
+	background-color: yellow;
+	z-index: 5;
+}
+
+#tv-horizontal_1 {
+	top: 5.6rem;
+	background-color: pink;
+	z-index: 10;
+}
+
+#tv-vertical_1 {
+	top: 15rem;
+	right: 10.25rem;
+	background-color: green;
+	z-index: 15;
+}
+
+#tv-diagonal_2 {
+	rotate: 135deg;
+	background-color: orange;
+	z-index: 20;
+}
+
+#tv-horizontal_2 {
+	top: 5.6rem;
+	background-color: red;
+	z-index: 25;
+}
+
+#tv-vertical_2 {
+	top: 15rem;
+	right: 10.25rem;
+	background-color: cyan;
+	z-index: 30;
+}
+
+#tv-horizontal_3 {
+	top: 5.6rem;
+	background-color: magenta;
+	z-index: 35;
+}
+
+#tv-vertical_3 {
+	top: 15rem;
+	right: 10.25rem;
+	background-color: brown;
+	z-index: 40;
+}

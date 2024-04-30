@@ -1,112 +1,112 @@
 .conteudo {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
 }
 
 .cartela {
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    background-image: linear-gradient(
-        to right,
-        #00ab69,
-        #00ab69,
-        #00a569,
-        #009369,
-        #017a4f
-    );
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 3px 3px 9px 3px var(--sombra);
+	width: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	background-image: linear-gradient(
+		to right,
+		#00ab69,
+		#00ab69,
+		#00a569,
+		#009369,
+		#017a4f
+	);
+	border-radius: 10px;
+	padding: 1rem;
+	box-shadow: 3px 3px 9px 3px var(--sombra);
 }
 
 .cartela__capa {
-    background-position: center;
-    background-size: cover;
-    margin: 1rem;
+	background-position: center;
+	background-size: cover;
+	margin: 1rem;
 }
 
 .cartela__capa > img {
-    border-radius: 10px;
-    width: 90%;
-    box-shadow: 3px 3px 9px 3px var(--sombra);
+	border-radius: 10px;
+	width: 90%;
+	box-shadow: 3px 3px 9px 3px var(--sombra);
 }
 
 .bolas {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
 }
 
 .bola {
-    border: 1px solid black;
-    box-shadow: 3px 3px 9px 3px var(--sombra);
-    background-color: #fff;
-    border-radius: 40px;
-    align-items: center;
-    width: 5rem;
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 180%;
-    font-family: "Fira Code", monospace;
-    transition: 300ms;
-    cursor: grab;
-    overflow: hidden;
+	border: 1px solid black;
+	box-shadow: 3px 3px 9px 3px var(--sombra);
+	background-color: #fff;
+	border-radius: 40px;
+	align-items: center;
+	width: 5rem;
+	height: 5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 180%;
+	font-family: "Fira Code", monospace;
+	transition: 300ms;
+	cursor: grab;
+	overflow: hidden;
 }
 
 .bola:hover {
-    scale: 1.05;
+	scale: 1.05;
 }
 
 @keyframes mover_resultado_bola {
-    0% {
-        translate: 0 200%;
-    }
+	0% {
+		translate: 0 200%;
+	}
 
-    100% {
-        translate: 0 -200%;
-    }
+	100% {
+		translate: 0 -200%;
+	}
 }
 
 @keyframes mover_primeiro_resultado_bola {
-    0% {
-        translate: 0;
-    }
+	0% {
+		translate: 0;
+	}
 
-    100% {
-        translate: 0 -200%;
-    }
+	100% {
+		translate: 0 -200%;
+	}
 }
 
 @keyframes mover_ultimo_resultado_bola {
-    0% {
-        translate: 0 200%;
-    }
+	0% {
+		translate: 0 200%;
+	}
 
-    100% {
-        translate: 0;
-    }
+	100% {
+		translate: 0;
+	}
 }
 
 .bola_animada {
-    animation: mover_resultado_bola 100ms normal ease-in-out;
+	animation: mover_resultado_bola 100ms normal ease-in-out;
 }
 
 .primeira_bola_animada {
-    animation: mover_primeiro_resultado_bola 100ms normal ease-in-out;
+	animation: mover_primeiro_resultado_bola 100ms normal ease-in-out;
 }
 
 .ultima_bola_animada {
-    animation: mover_ultimo_resultado_bola 100ms normal ease-in-out;
+	animation: mover_ultimo_resultado_bola 100ms normal ease-in-out;
 }

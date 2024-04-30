@@ -1,98 +1,98 @@
 @import url(./style.css);
 
 @media screen and (orientation: portrait) {
-    /* Padrão */
-    .conteudo {
-        padding: 5rem 0rem;
-    }
+	/* Padrão */
+	.conteudo {
+		padding: 5rem 0rem;
+	}
 
-    button.btn_back {
-        width: 10%;
-        height: 5%;
-    }
+	button.btn_back {
+		width: 10%;
+		height: 5%;
+	}
 
-    /* index.html */
-    .card_jogo {
-        flex-wrap: wrap;
-        padding: 2rem 3rem;
-        border-radius: 0px;
-    }
+	/* index.html */
+	.card_jogo {
+		flex-wrap: wrap;
+		padding: 2rem 3rem;
+		border-radius: 0px;
+	}
 
-    /* mega_sena.html */
-    .cartela {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+	/* mega_sena.html */
+	.cartela {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
-    /* impar_ou_par.html */
-    .inputs__input_group_radio {
-        padding: 3%;
-    }
+	/* impar_ou_par.html */
+	.inputs__input_group_radio {
+		padding: 3%;
+	}
 
-    /* impar_ou_par.html, pedra_papel_tesoura.html */
-    .game__ringue {
-        flex-wrap: wrap;
-    }
+	/* impar_ou_par.html, pedra_papel_tesoura.html */
+	.game__ringue {
+		flex-wrap: wrap;
+	}
 
-    @keyframes animacao_mao_do_usuario {
-        0% {
-            rotate: 180deg;
-        }
+	@keyframes animacao_mao_do_usuario {
+		0% {
+			rotate: 180deg;
+		}
 
-        25% {
-            rotate: 120deg;
-        }
+		25% {
+			rotate: 120deg;
+		}
 
-        50% {
-            rotate: 180deg;
-        }
+		50% {
+			rotate: 180deg;
+		}
 
-        75% {
-            rotate: 240deg;
-        }
+		75% {
+			rotate: 240deg;
+		}
 
-        100% {
-            rotate: 180deg;
-        }
-    }
+		100% {
+			rotate: 180deg;
+		}
+	}
 
-    .mao_do_usuario_animada {
-        animation: animacao_mao_do_usuario 10s infinite ease-in-out;
-    }
+	.mao_do_usuario_animada {
+		animation: animacao_mao_do_usuario 10s infinite ease-in-out;
+	}
 
-    @keyframes animacao_mao_do_bot {
-        0% {
-            rotate: 0deg;
-        }
+	@keyframes animacao_mao_do_bot {
+		0% {
+			rotate: 0deg;
+		}
 
-        25% {
-            rotate: -60deg;
-        }
+		25% {
+			rotate: -60deg;
+		}
 
-        50% {
-            rotate: 0deg;
-        }
+		50% {
+			rotate: 0deg;
+		}
 
-        75% {
-            rotate: 60deg;
-        }
+		75% {
+			rotate: 60deg;
+		}
 
-        100% {
-            rotate: 0deg;
-        }
-    }
+		100% {
+			rotate: 0deg;
+		}
+	}
 
-    .mao_do_bot_animada {
-        animation: animacao_mao_do_bot 10s infinite ease;
-    }
+	.mao_do_bot_animada {
+		animation: animacao_mao_do_bot 10s infinite ease;
+	}
 
-    /* pedra_papel_tesoura.html */
-    .opcoes {
-        justify-content: center;
-    }
+	/* pedra_papel_tesoura.html */
+	.opcoes {
+		justify-content: center;
+	}
 
-    .opcao {
-        border-radius: 0px;
-    }
+	.opcao {
+		border-radius: 0px;
+	}
 }

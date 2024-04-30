@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Jogo da Velha</title>
+		<link
+			rel="shortcut icon"
+			href="../assets/icons/favicon.ico"
+			type="image/x-icon"
+		/>
+		<link rel="stylesheet" href="../styles/style.css" />
+		<link rel="stylesheet" href="../styles/jogo_da_velha.css" />
+		<link rel="stylesheet" href="../styles/portrait.css" />
+		<script
+			type="text/javascript"
+			src="../javascript/jogo_da_velha.js"
+			defer
+		></script>
+	</head>
+	<body>
+		<a href="../../index.html"><button class="btn_back"></button></a>
+		<header class="header_principal">
+			<h1 class="titulo_principal">Jogo da Velha</h1>
+			<h2 class="subtitulo_principal">
+				Jogue o clássico jogo velha com o computador!
+			</h2>
+		</header>
+
+		<main class="conteudo">
+			<h2 class="game__titulo">Clique em um quadrado para jogar!</h2>
+			<section class="jogo_da_velha">
+				<div class="traco_vitorioso tv-diagonal" id="tv-diagonal_1"></div>
+				<div class="traco_vitorioso tv-horizontal" id="tv-horizontal_1"></div>
+				<div class="traco_vitorioso tv-vertical" id="tv-vertical_1"></div>
+				<div class="traco_vitorioso tv-diagonal" id="tv-diagonal_2"></div>
+				<div class="traco_vitorioso tv-horizontal" id="tv-horizontal_2"></div>
+				<div class="traco_vitorioso tv-vertical" id="tv-vertical_2"></div>
+				<div class="traco_vitorioso tv-horizontal" id="tv-horizontal_3"></div>
+				<div class="traco_vitorioso tv-vertical" id="tv-vertical_3"></div>
+
+				<div class="linha">
+					<div class="quadrado border-b border-r">
+						<span id="0">-</span>
+					</div>
+					<div class="quadrado border-l border-r border-b">
+						<span id="1">-</span>
+					</div>
+					<div class="quadrado border-b border-l">
+						<span id="2">-</span>
+					</div>
+				</div>
+				<div class="linha">
+					<div class="quadrado border-t border-b border-r">
+						<span id="3">-</span>
+					</div>
+					<div class="quadrado border-t border-r border-l border-b">
+						<span id="4">-</span>
+					</div>
+					<div class="quadrado border-t border-l border-b">
+						<span id="5">-</span>
+					</div>
+				</div>
+				<div class="linha">
+					<div class="quadrado border-t border-r">
+						<span id="6">-</span>
+					</div>
+					<div class="quadrado border-t border-r border-l">
+						<span id="7">-</span>
+					</div>
+					<div class="quadrado border-t border-l">
+						<span id="8">-</span>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer_principal">&copy;Rafael Santiago</footer>
+	</body>
+</html>
