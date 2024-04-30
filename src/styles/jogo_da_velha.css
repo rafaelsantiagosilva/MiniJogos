@@ -71,7 +71,7 @@
 
 .tv-diagonal {
 	top: 16rem;
-	width: 50rem;
+	width: 45rem;
 }
 
 .tv-vertical {
@@ -80,53 +80,45 @@
 
 #tv-diagonal_1 {
 	rotate: 45deg;
-
-	background-color: yellow;
+     top: 15.5rem;
 	z-index: 5;
-	display: block;
 }
 
 #tv-horizontal_1 {
-	top: 5.6rem;
-	background-color: pink;
+	top: 5rem;
 	z-index: 10;
 }
 
 #tv-vertical_1 {
 	top: 15rem;
 	right: 10.25rem;
-	background-color: green;
 	z-index: 15;
 }
 
 #tv-diagonal_2 {
 	rotate: 135deg;
-	background-color: orange;
+     top: 15.5rem;
 	z-index: 20;
 }
 
 #tv-horizontal_2 {
-	top: 5.6rem;
-	background-color: red;
+	top: 15.25rem;
 	z-index: 25;
 }
 
 #tv-vertical_2 {
 	top: 15rem;
-	right: 10.25rem;
-	background-color: cyan;
+     left: 1px;
 	z-index: 30;
 }
 
 #tv-horizontal_3 {
-	top: 5.6rem;
-	background-color: magenta;
+     top: 25.5rem;
 	z-index: 35;
 }
 
 #tv-vertical_3 {
 	top: 15rem;
-	right: 10.25rem;
-	background-color: brown;
+	left: 10.125rem;
 	z-index: 40;
 }
