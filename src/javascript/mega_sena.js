@@ -2,30 +2,60 @@
 
 document.getElementById("btn_sortear").addEventListener("click", sortearMegaSena);
 
-function sortearMegaSena() {
+async function sortearMegaSena() {
      let numerosAleatorios = [];
-     const BOLAS_DOM = document.getElementsByClassName("bola");
+     const BOLAS_DOM = document.getElementsByClassName("numero_bola");
 
-     let index = 0;
-     while (index < 6) {
-          let numeroAleatorio = 0;
+     async function animarBola(j, bola, numeroAleatorio) {
+          let animacao = "";
+     
+          if (j == 0)
+               animacao = "primeira_bola_animada"; 
+          else if (j == 14) 
+               animacao = "ultima_bola_animada";
+          else 
+               animacao = "bola_animada";
+          
+          bola.classList.add(animacao);
 
-          do {
-               numeroAleatorio = gerarNumeroAleatorio();
-          } while (numeroExisteNoArray(numerosAleatorios, numeroAleatorio));
+          await new Promise((resolve) => setTimeout(resolve, 100));
 
-          numerosAleatorios.push(numeroAleatorio);
-          index++;
+          if (j == 2){
+               bola.innerText = numeroAleatorio
+          } else { 
+               bola.innerText = gerarNumeroAleatorio();
+          }
+
+          bola.classList.remove(animacao);
      }
 
-     numerosAleatorios = ordenarEmOrdemCrescente(numerosAleatorios);
+     async function comecarAnimacoes() {
+          let index = 0;
+          while (index < 6) {
+               let numeroAleatorio = 0;
 
-     for (let i in numerosAleatorios)
-          BOLAS_DOM[i].innerText = numerosAleatorios[i];
+               do {
+                    numeroAleatorio = gerarNumeroAleatorio();
+               } while (numeroExisteNoArray(numerosAleatorios, numeroAleatorio));
+
+               numerosAleatorios.push(numeroAleatorio);
+               index++;
+          }
+
+          numerosAleatorios = ordenarEmOrdemCrescente(numerosAleatorios);
+
+          for (let i in numerosAleatorios) {
+               for (let j = 0; j < 3; j++){
+                    await animarBola(j, BOLAS_DOM[i], numerosAleatorios[i]);
+               }
+          }
+     }
+
+     await comecarAnimacoes();
 }
 
 function gerarNumeroAleatorio() {
-     let numeroAleatorio = Math.round(Math.random() * 59 + 1).toString()
+     let numeroAleatorio = Math.round(Math.random() * 59 + 1).toString();
 
      if (numeroAleatorio.length < 2)
           numeroAleatorio = "0" + numeroAleatorio;
