@@ -66,6 +66,7 @@
 	background-color: var(--cor_principal);
 	width: 30rem;
 	height: 10px;
+	display: none;
 }
 
 .tv-diagonal {
@@ -79,9 +80,10 @@
 
 #tv-diagonal_1 {
 	rotate: 45deg;
-	bottom: 35rem;
+
 	background-color: yellow;
 	z-index: 5;
+	display: block;
 }
 
 #tv-horizontal_1 {
