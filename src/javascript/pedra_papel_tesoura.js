@@ -1,6 +1,9 @@
 "use strict";
 
 const opcoes = document.getElementsByClassName("opcao");
+const VITORIA = 0;
+const DERROTA = 1;
+const EMPATE = 2;
 
 for (let i in opcoes) {
      opcoes[i].addEventListener("click", () => {
@@ -27,10 +30,6 @@ function pedraPapelTesoura(jogadaDoUsuario) {
 
      imgUsuario.setAttribute("src", `${CAMINHO_DAS_IMAGENS}${jogadaDoUsuario}.png`);
      imgBot.setAttribute("src", `${CAMINHO_DAS_IMAGENS}${jogadaDoBot}.png`);
-
-     const VITORIA = 0;
-     const DERROTA = 1;
-     const EMPATE = 2;
 
      if (jogadaDoUsuario == jogadaDoBot)
           formatarResultado(EMPATE, jogadaDoUsuario, jogadaDoBot);
@@ -60,19 +59,27 @@ function gerarJogadaDoBot() {
 function formatarResultado(resultado, jogadaDoUsuario, jogadaDoBot) {
      const tituloDoGameDOM = document.getElementById("game__titulo");
      const resultadoDOM = document.getElementById("resultado");
+     const maoDoUsuarioDOM = document.getElementById("mao_do_usuario");
+     const maoDoBotDOM = document.getElementById("mao_do_bot");
 
      switch (resultado) {
           case 0:
                tituloDoGameDOM.innerText = "Você venceu! Parabéns!";
                resultadoDOM.innerText = `${jogadaDoUsuario.toUpperCase()} vence de ${jogadaDoBot.toUpperCase()}`;
+               maoDoBotDOM.classList.remove("mao_animada");
+               maoDoUsuarioDOM.classList.add("mao_animada");
                break;
           case 1:
                tituloDoGameDOM.innerText = "Eu venci! Tente novamente!";
                resultadoDOM.innerText = `${jogadaDoUsuario.toUpperCase()} perde para ${jogadaDoBot.toUpperCase()}`;
+               maoDoUsuarioDOM.classList.remove("mao_animada");
+               maoDoBotDOM.classList.add("mao_animada");
                break;
           case 2:
                tituloDoGameDOM.innerText = "Empate! Vamos jogar novamente!";
                resultadoDOM.innerText = `${jogadaDoUsuario.toUpperCase()} empata com ${jogadaDoBot.toUpperCase()}`;
+               maoDoUsuarioDOM.classList.remove("mao_animada");
+               maoDoBotDOM.classList.remove("mao_animada");
                break;
      }
 }

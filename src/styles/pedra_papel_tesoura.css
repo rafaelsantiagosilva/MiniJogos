@@ -2,34 +2,60 @@
 @import url(./style.css);
 
 .opcoes {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .opcao {
-	display: flex;
-	justify-content: center;
-	background-color: #e4e4e4;
-	max-width: 20rem;
-	border-radius: 10px;
-	padding: 2rem;
-	box-shadow: 3px 3px 9px 3px var(--sombra);
-	transition: 300ms;
-	cursor: pointer;
-     margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    background-color: #e4e4e4;
+    max-width: 20rem;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 3px 3px 9px 3px var(--sombra);
+    transition: 300ms;
+    cursor: pointer;
+    margin: 2rem auto;
 }
 
 .opcao:hover {
-	scale: 1.1;
-	z-index: 10;
+    scale: 1.1;
+    z-index: 10;
 }
 
 .opcao > img {
-	width: 40%;
+    width: 40%;
 }
 
 .mao {
-	z-index: 5;
+	padding: 5px;
+}
+
+@keyframes animacao_mao {
+	0% {
+		rotate: 0deg;
+	}
+
+	25% {
+		rotate: -60deg;
+	}
+
+	50% {
+		rotate: 0deg;
+	}
+
+	75% {
+		rotate: 60deg;
+	}
+
+	100% {
+		rotate: 0deg;
+	}
+}
+
+.mao_animada {
+	animation: animacao_mao 10s infinite ease;
 }
