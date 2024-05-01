@@ -34,6 +34,8 @@ function numeroExtenso(numero) {
                return "quatro";
           case 5:
                return "cinco";
+          default:
+               console.error("ERRO: Por favor, verifique se o valor passado está presente na seguinte lista:\n1, 2, 3, 4, 5");
      }
 }
 

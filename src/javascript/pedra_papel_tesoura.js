@@ -81,5 +81,8 @@ function formatarResultado(resultado, jogadaDoUsuario, jogadaDoBot) {
                maoDoUsuarioDOM.classList.remove("mao_animada");
                maoDoBotDOM.classList.remove("mao_animada");
                break;
+          default:
+               console.error("ERRO: Verifique o código e veja se somente os valores da variáveis 'VITORIA', 'DERROTA' ou 'EMPATE' estão sendo passados.");
+               break;
      }
 }
