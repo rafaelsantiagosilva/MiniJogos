@@ -188,8 +188,8 @@ function verificarFimDaPartida() {
 
     const funcoesDeVerificacao = [verificarDiagonais, verificarColunas, verificarLinhas];
 
-    for (let i in funcoesDeVerificacao) {
-        if (funcoesDeVerificacao[i]().fimDaPartida) {
+    for (let funcao of funcoesDeVerificacao) {
+        if (funcao().fimDaPartida) {
             return { vencedor: funcoesDeVerificacao[i]().vencedor, fimDaPartida: true };
         }
     }
