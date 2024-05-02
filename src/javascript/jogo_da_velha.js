@@ -3,15 +3,17 @@
 const quadradosDOM = document.getElementsByClassName("quadrado");
 const textosDosQuadradosDOM = document.querySelectorAll(".quadrado span");
 const btnResetarDOM = document.getElementById("btn_resetar");
+
 btnResetarDOM.addEventListener("click", resetar);
+
 const simbolos = ["X", "O"];
 let algumJogadorVenceu = false;
 
 for (let i in quadradosDOM) {
     if (!todosOsQuadradosPreenchidos()) {
         quadradosDOM[i].addEventListener("click", () => {
-            if (quadradosDOM[i].classList[quadradosDOM[i].classList.length - 1] != "desabilitado") {
-                if (textosDosQuadradosDOM[i].innerText != simbolos[0] && textosDosQuadradosDOM[i].innerText != simbolos[1]) {
+            if (quadradosDOM[i].classList[quadradosDOM[i].classList.length - 1] != "desabilitado") { // Se a ultima classe não for "desabilitado"...
+                if (!simbolos.includes(textosDosQuadradosDOM[i].innerText)) {
                     textosDosQuadradosDOM[i].style.visibility = "visible";
                     textosDosQuadradosDOM[i].innerText = simbolos[0];
 
@@ -49,22 +51,26 @@ function verificarDiagonais() {
     ]
 
     for (let i in jogadores) {
-        if (textosDosQuadradosDOM[0].innerText === simbolos[i]) {
-            if (textosDosQuadradosDOM[4].innerText === simbolos[i]) {
-                if (textosDosQuadradosDOM[8].innerText === simbolos[i]) {
-                    diagonais[0].style.display = "block";
-                    jogadores[i].valor++;
-                    fimDaPartida = true;
-                    algumJogadorVenceu = true;
-                }
+        let diagonal = 0;
+        let somador = 0;
+
+        for (let j = 0; j <= 2; j += 2) {
+            if (j == 0) {
+                diagonal = 0;
+                somador = 4;
+            } else if (j == 2) {
+                diagonal = 1;
+                somador = 2;
             }
-        } else if (textosDosQuadradosDOM[2].innerText === simbolos[i]) {
-            if (textosDosQuadradosDOM[4].innerText === simbolos[i]) {
-                if (textosDosQuadradosDOM[6].innerText === simbolos[i]) {
-                    diagonais[1].style.display = "block";
-                    jogadores[i].valor++;
-                    fimDaPartida = true;
-                    algumJogadorVenceu = true;
+
+            if (textosDosQuadradosDOM[j].innerText === simbolos[i]) {
+                if (textosDosQuadradosDOM[j + somador].innerText === simbolos[i]) {
+                    if (textosDosQuadradosDOM[j + somador + somador].innerText === simbolos[i]) {
+                        diagonais[diagonal].style.display = "block";
+                        jogadores[i].valor++;
+                        fimDaPartida = true;
+                        algumJogadorVenceu = true;
+                    }
                 }
             }
         }
@@ -150,8 +156,9 @@ function verificarLinhas() {
 
 function todosOsQuadradosPreenchidos() {
     let qtdQuadradosPreenchidos = 0;
+
     for (let i in textosDosQuadradosDOM) {
-        if (textosDosQuadradosDOM[i].innerText == simbolos[0] || textosDosQuadradosDOM[i].innerText == simbolos[1]) {
+        if (simbolos.includes(textosDosQuadradosDOM[i].innerText)) {
             qtdQuadradosPreenchidos++;
         }
     }
@@ -179,32 +186,109 @@ function verificarFimDaPartida() {
 }
 
 function quadradoJaClicado(idQuadrado) {
-    for (let i in textosDosQuadradosDOM) {
-        if (textosDosQuadradosDOM[i].id == idQuadrado) {
-            if (textosDosQuadradosDOM[i].innerText == simbolos[0] || textosDosQuadradosDOM[i].innerText == simbolos[1]) {
-                return true;
-            }
-        }
-    }
+    if (simbolos.includes(textosDosQuadradosDOM[idQuadrado].innerText))
+        return true;
 
     return false;
 }
 
-function jogadaDoBot() {
-    let jogadaDoBot = 0;
-
-    do {
-        jogadaDoBot = Math.round(Math.random() * 8);
-    } while (quadradoJaClicado(jogadaDoBot));
+function quadradoAleatorio() {
+    return Math.round(Math.random() * 8);
+}
 
 
-    for (let j in textosDosQuadradosDOM) {
-        if (jogadaDoBot == textosDosQuadradosDOM[j].id) {
-            textosDosQuadradosDOM[j].innerText = simbolos[1];
-            textosDosQuadradosDOM[j].style.visibility = "visible";
-            break;
+function verificarMelhorJogadaDoBot() {
+    for (let i = 0; i < textosDosQuadradosDOM.length; i++) {
+        if (simbolos.includes(textosDosQuadradosDOM[i].innerText)) {
+            // Verificando diagonais
+            if (i == 0 || i == 2 || i == 6 || i == 8) {
+                if (simbolos.includes(textosDosQuadradosDOM[4].innerText) &&
+                    !quadradoJaClicado(8 - i))
+                    return 8 - i;
+
+                else if (simbolos.includes(textosDosQuadradosDOM[(8 - i)].innerText) &&
+                    !quadradoJaClicado((4)))
+                    return 4;
+            }
+
+            // Verificando colunas
+            if (i == 0 || i == 1 || i == 2) { // Primeira linha
+                if (simbolos.includes(textosDosQuadradosDOM[(i + 3)].innerText) &&
+                    !quadradoJaClicado((i + 6)))
+                    return i + 6;
+
+                else if (simbolos.includes(textosDosQuadradosDOM[(i + 6)].innerText) &&
+                    !quadradoJaClicado((i + 3)))
+                    return i + 3;
+            }
+
+            if (i == 3 || i == 4 || i == 5) { // Segunda linha
+                if (simbolos.includes(textosDosQuadradosDOM[(i - 3)].innerText) &&
+                    !quadradoJaClicado((i + 3)))
+                    return i + 3;
+
+                else if (simbolos.includes(textosDosQuadradosDOM[(i + 3)].innerText) &&
+                    !quadradoJaClicado((i - 3)))
+                    return i - 3;
+            }
+
+            if (i == 6 || i == 7 || i == 8) { // Terceira linha
+                if (simbolos.includes(textosDosQuadradosDOM[(i - 3)].innerText) &&
+                    !quadradoJaClicado((i - 6)))
+                    return i - 6;
+
+                else if (simbolos.includes(textosDosQuadradosDOM[(i - 6)].innerText) &&
+                    !quadradoJaClicado((i - 3)))
+                    return i - 3;
+            }
+
+            // Verificando linhas
+            if (i % 3 == 0) { // Primeira coluna
+                if (simbolos.includes(textosDosQuadradosDOM[(i + 1)].innerText) &&
+                    !quadradoJaClicado((i + 2)))
+                    return i + 2;
+
+                else if (simbolos.includes(textosDosQuadradosDOM[(i + 2)].innerText) &&
+                    !quadradoJaClicado((i + 1)))
+                    return i + 1;
+            }
+
+            if ((i - 1) % 3 == 0) { // Segunda coluna
+                if (simbolos.includes(textosDosQuadradosDOM[(i + 1)].innerText) &&
+                    !quadradoJaClicado((i - 1)))
+                    return i - 1;
+
+                else if (simbolos.includes(textosDosQuadradosDOM[(i - 1)].innerText) &&
+                    !quadradoJaClicado((i + 1)))
+                    return i + 1;
+            }
+
+            if ((i - 2) % 3 == 0) { // Terceira coluna
+                if (simbolos.includes(textosDosQuadradosDOM[(i - 1)].innerText) &&
+                    !quadradoJaClicado((i - 2)))
+                    return i - 2;
+
+                else if (simbolos.includes(textosDosQuadradosDOM[(i - 2)].innerText) &&
+                    !quadradoJaClicado((i - 1)))
+                    return i - 1;
+            }
         }
     }
+
+    return -1;
+}
+
+function jogadaDoBot() {
+    let jogadaDoBot = verificarMelhorJogadaDoBot();
+
+    if (jogadaDoBot == -1) {
+        do {
+            jogadaDoBot = quadradoAleatorio();
+        } while (quadradoJaClicado(jogadaDoBot));
+    }
+
+    textosDosQuadradosDOM[jogadaDoBot].innerText = simbolos[1];
+    textosDosQuadradosDOM[jogadaDoBot].style.visibility = "visible";
 }
 
 function desabilitarQuadrados() {
