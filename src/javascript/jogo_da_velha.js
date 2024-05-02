@@ -10,29 +10,27 @@ const simbolos = ["X", "O"];
 let algumJogadorVenceu = false;
 
 for (let i in quadradosDOM) {
-    if (!todosOsQuadradosPreenchidos()) {
-        quadradosDOM[i].addEventListener("click", () => {
-            if (quadradosDOM[i].classList[quadradosDOM[i].classList.length - 1] != "desabilitado") { // Se a ultima classe não for "desabilitado"...
-                if (!simbolos.includes(textosDosQuadradosDOM[i].innerText)) {
-                    textosDosQuadradosDOM[i].style.visibility = "visible";
-                    textosDosQuadradosDOM[i].innerText = simbolos[0];
+    quadradosDOM[i].addEventListener("click", () => {
+        if (quadradosDOM[i].classList[quadradosDOM[i].classList.length - 1] != "desabilitado") { // Se a ultima classe não for "desabilitado"...
+            if (!simbolos.includes(textosDosQuadradosDOM[i].innerText)) {
+                textosDosQuadradosDOM[i].style.visibility = "visible";
+                textosDosQuadradosDOM[i].innerText = simbolos[0];
 
+                if (verificarFimDaPartida().fimDaPartida) {
+                    btnResetarDOM.classList.remove("none");
+                    formatarResultado(verificarFimDaPartida().vencedor);
+                    desabilitarQuadrados();
+                } else {
+                    jogadaDoBot();
                     if (verificarFimDaPartida().fimDaPartida) {
                         btnResetarDOM.classList.remove("none");
                         formatarResultado(verificarFimDaPartida().vencedor);
                         desabilitarQuadrados();
-                    } else {
-                        jogadaDoBot();
-                        if (verificarFimDaPartida().fimDaPartida) {
-                            btnResetarDOM.classList.remove("none");
-                            formatarResultado(verificarFimDaPartida().vencedor);
-                            desabilitarQuadrados();
-                        }
                     }
                 }
             }
-        });
-    }
+        }
+    });
 }
 
 function verificarDiagonais() {
@@ -174,9 +172,12 @@ function todosOsQuadradosPreenchidos() {
         }
     }
 
-    if (qtdQuadradosPreenchidos == 9)
+    if (qtdQuadradosPreenchidos == 9) {
+        console.log("Todos os quadrados estão preenchidos. " + qtdQuadradosPreenchidos);
         return true;
+    }
 
+    console.log("Ainda existem quadrados não preenchidos.");
     return false;
 }
 
@@ -186,18 +187,17 @@ function verificarFimDaPartida() {
     // - Verifica se houve empate
     // - Retorna se é o fim da partida e o vencedor/empate
 
-    const funcoesDeVerificacao = [verificarDiagonais, verificarColunas, verificarLinhas];
-
-    for (let funcao of funcoesDeVerificacao) {
-        if (funcao().fimDaPartida) {
-            return { vencedor: funcoesDeVerificacao[i]().vencedor, fimDaPartida: true };
-        }
-    }
-
-    if (todosOsQuadradosPreenchidos() && !algumJogadorVenceu) {
+    if (todosOsQuadradosPreenchidos()) {
         return { vencedor: "Empate", fimDaPartida: true };
     }
 
+    const funcoesDeVerificacao = [verificarDiagonais, verificarColunas, verificarLinhas];
+    for (let funcao of funcoesDeVerificacao) {
+        if (funcao().fimDaPartida) {
+            return { vencedor: funcao().vencedor, fimDaPartida: true };
+        }
+    }
+    
     return { vencedor: "", fimDaPartida: false };
 }
 
