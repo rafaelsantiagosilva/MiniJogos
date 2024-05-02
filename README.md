@@ -1,6 +1,6 @@
 # MiniJogos!
 
-3 minijogos diferentes envolvendo disputar com a sorte ou com o computador!
+4 minijogos diferentes envolvendo disputar com a sorte ou com o computador!
 
 Visualização: [https://rafaelsantiagosilva.github.io/MiniJogos](https://rafaelsantiagosilva.github.io/MiniJogos/)
 
