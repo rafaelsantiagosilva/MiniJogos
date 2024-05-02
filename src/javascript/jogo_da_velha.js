@@ -172,12 +172,9 @@ function todosOsQuadradosPreenchidos() {
         }
     }
 
-    if (qtdQuadradosPreenchidos == 9) {
-        console.log("Todos os quadrados estão preenchidos. " + qtdQuadradosPreenchidos);
+    if (qtdQuadradosPreenchidos == 9) 
         return true;
-    }
 
-    console.log("Ainda existem quadrados não preenchidos.");
     return false;
 }
 
@@ -197,7 +194,7 @@ function verificarFimDaPartida() {
             return { vencedor: funcao().vencedor, fimDaPartida: true };
         }
     }
-    
+
     return { vencedor: "", fimDaPartida: false };
 }
 
