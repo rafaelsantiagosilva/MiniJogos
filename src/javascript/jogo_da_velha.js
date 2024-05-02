@@ -182,9 +182,9 @@ function todosOsQuadradosPreenchidos() {
 
 function verificarFimDaPartida() {
     // Função que roda todas as funções de verificação:
-        // - Verifica se houve vencedor
-        // - Verifica se houve empate
-        // - Retorna se é o fim da partida e o vencedor/empate
+    // - Verifica se houve vencedor
+    // - Verifica se houve empate
+    // - Retorna se é o fim da partida e o vencedor/empate
 
     const funcoesDeVerificacao = [verificarDiagonais, verificarColunas, verificarLinhas];
 
@@ -218,85 +218,88 @@ function quadradoAleatorio() {
 
 
 function verificarMelhorJogadaDoBot() {
-    // Função que verifica qual a melhor jogada possível para o bot:
-        // - Para vencer
-        // - Para impedir que o usuário vença
+    // Função que verifica qual a melhor jogada possível para o bot, com prioridade para vitória:
+    // - Para vencer, primeiramente
+    // - Para impedir que o usuário vença, secundariamente
 
-    for (let i = 0; i < textosDosQuadradosDOM.length; i++) {
-        if (simbolos.includes(textosDosQuadradosDOM[i].innerText)) {
-            // Verificando diagonais
-            if (i == 0 || i == 2 || i == 6 || i == 8) {
-                if (simbolos.includes(textosDosQuadradosDOM[4].innerText) &&
-                    !quadradoJaClicado(8 - i))
-                    return 8 - i;
+    for (let j = simbolos.length; j >= 0; j--) {
+        for (let i = 0; i < textosDosQuadradosDOM.length; i++) {
+            if (simbolos[j] == textosDosQuadradosDOM[i].innerText) {
+                // Verificando diagonais
+                if (i == 0 || i == 2 || i == 6 || i == 8) {
+                    if (simbolos[j] == textosDosQuadradosDOM[4].innerText &&
+                        !quadradoJaClicado(8 - i))
+                        return 8 - i;
 
-                else if (simbolos.includes(textosDosQuadradosDOM[(8 - i)].innerText) &&
-                    !quadradoJaClicado((4)))
-                    return 4;
-            }
+                    else if (simbolos[j] == textosDosQuadradosDOM[(8 - i)].innerText &&
+                        !quadradoJaClicado((4)))
+                        return 4;
+                }
 
-            // Verificando colunas
-            if (i == 0 || i == 1 || i == 2) { // Primeira linha
-                if (simbolos.includes(textosDosQuadradosDOM[(i + 3)].innerText) &&
-                    !quadradoJaClicado((i + 6)))
-                    return i + 6;
+                // Verificando colunas
+                if (i == 0 || i == 1 || i == 2) { // Primeira linha
+                    if (simbolos[j] == textosDosQuadradosDOM[(i + 3)].innerText &&
+                        !quadradoJaClicado((i + 6)))
+                        return i + 6;
 
-                else if (simbolos.includes(textosDosQuadradosDOM[(i + 6)].innerText) &&
-                    !quadradoJaClicado((i + 3)))
-                    return i + 3;
-            }
+                    else if (simbolos[j] == textosDosQuadradosDOM[(i + 6)].innerText &&
+                        !quadradoJaClicado((i + 3)))
+                        return i + 3;
+                }
 
-            if (i == 3 || i == 4 || i == 5) { // Segunda linha
-                if (simbolos.includes(textosDosQuadradosDOM[(i - 3)].innerText) &&
-                    !quadradoJaClicado((i + 3)))
-                    return i + 3;
+                if (i == 3 || i == 4 || i == 5) { // Segunda linha
+                    if (simbolos[j] == textosDosQuadradosDOM[(i - 3)].innerText &&
+                        !quadradoJaClicado((i + 3)))
+                        return i + 3;
 
-                else if (simbolos.includes(textosDosQuadradosDOM[(i + 3)].innerText) &&
-                    !quadradoJaClicado((i - 3)))
-                    return i - 3;
-            }
+                    else if (simbolos[j] == textosDosQuadradosDOM[(i + 3)].innerText &&
+                        !quadradoJaClicado((i - 3)))
+                        return i - 3;
+                }
 
-            if (i == 6 || i == 7 || i == 8) { // Terceira linha
-                if (simbolos.includes(textosDosQuadradosDOM[(i - 3)].innerText) &&
-                    !quadradoJaClicado((i - 6)))
-                    return i - 6;
+                if (i == 6 || i == 7 || i == 8) { // Terceira linha
+                    if (simbolos[j] == textosDosQuadradosDOM[(i - 3)].innerText &&
+                        !quadradoJaClicado((i - 6)))
+                        return i - 6;
 
-                else if (simbolos.includes(textosDosQuadradosDOM[(i - 6)].innerText) &&
-                    !quadradoJaClicado((i - 3)))
-                    return i - 3;
-            }
+                    else if (simbolos[j] == textosDosQuadradosDOM[(i - 6)].innerText &&
+                        !quadradoJaClicado((i - 3)))
+                        return i - 3;
+                }
 
-            // Verificando linhas
-            if (i % 3 == 0) { // Primeira coluna
-                if (simbolos.includes(textosDosQuadradosDOM[(i + 1)].innerText) &&
-                    !quadradoJaClicado((i + 2)))
-                    return i + 2;
+                // Verificando linhas
+                if (i % 3 == 0) { // Primeira coluna
+                    if (simbolos[j] == textosDosQuadradosDOM[(i + 1)].innerText &&
+                        !quadradoJaClicado((i + 2)))
+                        return i + 2;
 
-                else if (simbolos.includes(textosDosQuadradosDOM[(i + 2)].innerText) &&
-                    !quadradoJaClicado((i + 1)))
-                    return i + 1;
-            }
+                    else if (simbolos[j] == textosDosQuadradosDOM[(i + 2)].innerText &&
+                        !quadradoJaClicado((i + 1)))
+                        return i + 1;
+                }
 
-            if ((i - 1) % 3 == 0) { // Segunda coluna
-                if (simbolos.includes(textosDosQuadradosDOM[(i + 1)].innerText) &&
-                    !quadradoJaClicado((i - 1)))
-                    return i - 1;
+                if ((i - 1) % 3 == 0) { // Segunda coluna
+                    if (simbolos[j] == textosDosQuadradosDOM[(i + 1)].innerText &&
+                        !quadradoJaClicado((i - 1)))
+                        return i - 1;
 
-                else if (simbolos.includes(textosDosQuadradosDOM[(i - 1)].innerText) &&
-                    !quadradoJaClicado((i + 1)))
-                    return i + 1;
-            }
+                    else if (simbolos[j] == textosDosQuadradosDOM[(i - 1)].innerText &&
+                        !quadradoJaClicado((i + 1)))
+                        return i + 1;
+                }
 
-            if ((i - 2) % 3 == 0) { // Terceira coluna
-                if (simbolos.includes(textosDosQuadradosDOM[(i - 1)].innerText) &&
-                    !quadradoJaClicado((i - 2)))
-                    return i - 2;
+                if ((i - 2) % 3 == 0) { // Terceira coluna
+                    if (simbolos[j] == textosDosQuadradosDOM[(i - 1)].innerText &&
+                        !quadradoJaClicado((i - 2)))
+                        return i - 2;
 
-                else if (simbolos.includes(textosDosQuadradosDOM[(i - 2)].innerText) &&
-                    !quadradoJaClicado((i - 1)))
-                    return i - 1;
+                    else if (simbolos[j] == textosDosQuadradosDOM[(i - 2)].innerText &&
+                        !quadradoJaClicado((i - 1)))
+                        return i - 1;
+                }
             }
         }
+
     }
 
     return -1;
