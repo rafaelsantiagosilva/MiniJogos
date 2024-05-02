@@ -36,6 +36,8 @@ for (let i in quadradosDOM) {
 }
 
 function verificarDiagonais() {
+    // Função que verifica se alguma diagonal foi feita. Se sim, retorna que houve o fim da partida e qual foi o vencedor
+
     const diagonais = document.getElementsByClassName("tv-diagonal");
     let vencedor = "";
     let fimDaPartida = false;
@@ -83,6 +85,9 @@ function verificarDiagonais() {
 }
 
 function verificarColunas() {
+    // Função que verifica se alguma coluna foi feita. Se sim, retorna que houve o fim da partida e qual foi o vencedor
+
+
     const colunas = document.getElementsByClassName("tv-vertical");
     let vencedor = "";
     let fimDaPartida = false;
@@ -119,6 +124,9 @@ function verificarColunas() {
 }
 
 function verificarLinhas() {
+    // Função que verifica se alguma linha foi feita. Se sim, retorna que houve o fim da partida e qual foi o vencedor
+
+
     const linhas = document.getElementsByClassName("tv-horizontal");
     let vencedor = "";
     let fimDaPartida = false;
@@ -155,6 +163,9 @@ function verificarLinhas() {
 }
 
 function todosOsQuadradosPreenchidos() {
+    // Função que verifica e retorna se todos os quadrados estão preenchidos
+
+
     let qtdQuadradosPreenchidos = 0;
 
     for (let i in textosDosQuadradosDOM) {
@@ -170,6 +181,11 @@ function todosOsQuadradosPreenchidos() {
 }
 
 function verificarFimDaPartida() {
+    // Função que roda todas as funções de verificação:
+        // - Verifica se houve vencedor
+        // - Verifica se houve empate
+        // - Retorna se é o fim da partida e o vencedor/empate
+
     const funcoesDeVerificacao = [verificarDiagonais, verificarColunas, verificarLinhas];
 
     for (let i in funcoesDeVerificacao) {
@@ -186,6 +202,8 @@ function verificarFimDaPartida() {
 }
 
 function quadradoJaClicado(idQuadrado) {
+    // Função que verifica, através de seu parâmetro, se o quadrado correspondente já foi clicado
+
     if (simbolos.includes(textosDosQuadradosDOM[idQuadrado].innerText))
         return true;
 
@@ -193,11 +211,17 @@ function quadradoJaClicado(idQuadrado) {
 }
 
 function quadradoAleatorio() {
+    // Função que gera um id de um quadrado aleatoriamente
+
     return Math.round(Math.random() * 8);
 }
 
 
 function verificarMelhorJogadaDoBot() {
+    // Função que verifica qual a melhor jogada possível para o bot:
+        // - Para vencer
+        // - Para impedir que o usuário vença
+
     for (let i = 0; i < textosDosQuadradosDOM.length; i++) {
         if (simbolos.includes(textosDosQuadradosDOM[i].innerText)) {
             // Verificando diagonais
@@ -279,6 +303,8 @@ function verificarMelhorJogadaDoBot() {
 }
 
 function jogadaDoBot() {
+    // Função que gera a jogada do bot
+
     let jogadaDoBot = verificarMelhorJogadaDoBot();
 
     if (jogadaDoBot == -1) {
@@ -292,12 +318,16 @@ function jogadaDoBot() {
 }
 
 function desabilitarQuadrados() {
+    // Função que faz com que o quadrados deixem de ser clicaveis
+
     for (let i in quadradosDOM) {
         quadradosDOM[i].classList.add("desabilitado");
     }
 }
 
 function formatarResultado(vencedor) {
+    // Função que formata o resultado do fim da partida
+
     const tituloDOM = document.getElementById("game__titulo");
 
     switch (vencedor) {
@@ -314,6 +344,8 @@ function formatarResultado(vencedor) {
 }
 
 async function esvaziarQuadrados() {
+    // Função que esvazia os quadrados
+
     for (let i in textosDosQuadradosDOM) {
         textosDosQuadradosDOM[i].innerText = "-";
         textosDosQuadradosDOM[i].style.visibility = "hidden";
@@ -321,12 +353,16 @@ async function esvaziarQuadrados() {
 }
 
 async function habilitarQuadrados() {
+    // Função que faz com que os quadrados voltem a ser clicáveis
+
     for (let i in quadradosDOM) {
         quadradosDOM[i].classList.remove("desabilitado");
     }
 }
 
 async function sumirComTracosVitoriosos() {
+    // Função que deixa os traços de vitória invisíveis novamente
+
     const tracosVitoriososDOM = document.getElementsByClassName("traco_vitorioso");
 
     for (let i in tracosVitoriososDOM) {
@@ -338,6 +374,8 @@ async function sumirComTracosVitoriosos() {
 }
 
 function resetar() {
+    // Função que reseta para conseguir jogar novamente
+
     esvaziarQuadrados();
     sumirComTracosVitoriosos();
     habilitarQuadrados();
