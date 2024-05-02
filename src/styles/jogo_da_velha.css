@@ -12,6 +12,16 @@
 	flex-direction: column;
 }
 
+.conteudo__header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.none {
+	display: none;
+}
+
 .jogo_da_velha {
 	text-align: center;
 	display: flex;
