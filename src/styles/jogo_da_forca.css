@@ -1,0 +1,112 @@
+:root {
+	--largura-da-forca: 0.5rem;
+	--cor-da-forca: #000000;
+	--cor-do-corpo: var(--cor_principal);
+}
+
+#game {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	padding: 2rem;
+}
+
+.forca_imagem {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.poste {
+	width: var(--largura-da-forca);
+	height: 18rem;
+	background-color: var(--cor-da-forca);
+}
+
+.gancho {
+	display: flex;
+}
+
+.gancho > .barra {
+	height: var(--largura-da-forca);
+	width: 5rem;
+	background-color: var(--cor-da-forca);
+}
+
+.gancho > .ponta {
+	width: var(--largura-da-forca);
+	height: 1rem;
+	background-color: #000000;
+}
+
+.corpo {
+	position: relative;
+	bottom: 17rem;
+	left: 4.25rem;
+}
+
+.corpo > .cabeca {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 100%;
+	border: var(--largura-da-forca) solid var(--cor-do-corpo);
+}
+
+.corpo > .tronco {
+	display: flex;
+	gap: 1.2rem;
+	padding-top: 0.5rem;
+	max-width: auto;
+	position: relative;
+	right: 0.2rem;
+}
+
+.corpo > .pernas {
+	display: flex;
+	gap: 2.4rem;
+}
+
+.braco_esquerdo,
+.perna_esquerda {
+	width: 0.5rem;
+	height: 5rem;
+	background-color: var(--cor-do-corpo);
+	rotate: 25deg;
+}
+
+.corpo > .tronco > .peitoral {
+	width: 0.5rem;
+	height: 6rem;
+	background-color: var(--cor-do-corpo);
+}
+
+.braco_direito,
+.perna_direita {
+	width: 0.5rem;
+	height: 5rem;
+	background-color: var(--cor-do-corpo);
+	rotate: -25deg;
+}
+
+#palavra {
+	font-size: 290%;
+	max-width: 90%;
+	letter-spacing: 1.5rem;
+	font-weight: 600;
+	text-wrap: wrap;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#letras_erradas {
+	width: 60%;
+	text-wrap: wrap;
+	font-size: 180%;
+	letter-spacing: 1rem;
+	font-weight: 400;
+	position: relative;
+	bottom: 32rem;
+	left: 13rem;
+}

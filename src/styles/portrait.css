@@ -95,4 +95,15 @@
 	.opcao {
 		border-radius: 0px;
 	}
+
+	/* forca */
+	#letras_erradas {
+		left: 0;
+		bottom: 10rem;
+		font-size: 100%;
+	}
+
+	#palavra {
+		font-size: 150%;
+	}
 }
