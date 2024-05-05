@@ -13,9 +13,14 @@
 		<link rel="stylesheet" href="../styles/style.css" />
 		<link rel="stylesheet" href="../styles/jogo_da_forca.css" />
 		<link rel="stylesheet" href="../styles/portrait.css" />
+		<script
+			type="text/javascript"
+			src="../javascript/jogo_da_forca.js"
+			defer
+		></script>
 	</head>
 
-	<body>
+	<body onload="gerarPokemon()">
 		<header class="header_principal">
 			<h1 class="titulo_principal">Jogo da Forca</h1>
 			<h2 class="subtitulo_principal">
@@ -24,35 +29,47 @@
 		</header>
 
 		<main class="conteudo">
-			<div id="game">
-				<section class="forca_imagem">
-					<div class="forca">
-						<div class="gancho">
-							<div class="ponta"></div>
-							<div class="barra"></div>
-							<div class="ponta"></div>
-						</div>
-						<div class="poste"></div>
+			<div class="game">
+				<h2 class="game__titulo" id="game__titulo">Vamos jogar!</h2>
+				<section class="form">
+					<div>
+						<label for="inpChute">Digite uma letra: </label>
+						<input
+							type="text"
+							name="inpChute"
+							id="inpChute"
+							maxlength="1"
+							size="5"
+							placeholder="A"
+						/>
+						<a href="#palavra"><button id="btn-chutar" class="btn">Chutar</button></a>
 					</div>
-					<div class="corpo">
-						<div class="cabeca"></div>
-						<div class="tronco">
-							<div class="braco_esquerdo"></div>
-							<div class="peitoral"></div>
-							<div class="braco_direito"></div>
-						</div>
-						<div class="pernas">
-							<div class="perna_esquerda"></div>
-							<div class="perna_direita"></div>
-						</div>
-					</div>
-					<p id="letras_erradas">AEIOU</p>
 				</section>
-				<div id="palavra">
-					<span class="letra">R</span><span class="letra">A</span
-					><span class="letra">Y</span><span class="letra">Q</span
-					><span class="letra">U</span><span class="letra">A</span
-					><span class="letra">Z</span><span class="letra">A</span>
+				<div id="jogo_da_forca">
+					<section class="forca_imagem">
+						<div class="forca">
+							<div class="gancho">
+								<div class="ponta"></div>
+								<div class="barra"></div>
+								<div class="ponta"></div>
+							</div>
+							<div class="poste"></div>
+						</div>
+						<div class="corpo">
+							<div class="cabeca parte-do-corpo"></div>
+							<div class="tronco">
+								<div class="braco_esquerdo parte-do-corpo"></div>
+								<div class="peitoral parte-do-corpo"></div>
+								<div class="braco_direito parte-do-corpo"></div>
+							</div>
+							<div class="pernas">
+								<div class="perna_esquerda parte-do-corpo"></div>
+								<div class="perna_direita parte-do-corpo"></div>
+							</div>
+						</div>
+						<p id="letras_chutadas"></p>
+					</section>
+					<div id="palavra"></div>
 				</div>
 			</div>
 		</main>
