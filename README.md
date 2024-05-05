@@ -36,3 +36,10 @@ Jogue contra um algoritmo neste nostálgico jogo.
 
 ![Imagem do minijogo Jogo da Velha](./src/assets/images/views/jogo_da_velha.png)
 Visualização: [https://rafaelsantiagosilva.github.io/MiniJogos/src/pages/pedra_papel_tesoura.html](https://rafaelsantiagosilva.github.io/MiniJogos/src/pages/jogo_da_velha.html)
+
+## Jogo da Forca
+
+Teste seus conhecimentos nerds neste jogo da forca de pokemon. Utiliza a [PokeAPI](https://pokeapi.co/).
+
+![Imagem do minijogo Jogo da Forca](./src/assets/images/views/jogo_da_forca.png)
+Visualização: [https://rafaelsantiagosilva.github.io/MiniJogos/src/pages/pedra_papel_tesoura.html](https://rafaelsantiagosilva.github.io/MiniJogos/src/pages/jogo_da_forca.html)
