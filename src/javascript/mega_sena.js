@@ -8,21 +8,21 @@ async function sortearMegaSena() {
 
      async function animarBola(j, bola, numeroAleatorio) {
           let animacao = "";
-     
+
           if (j == 0)
-               animacao = "primeira_bola_animada"; 
-          else if (j == 14) 
+               animacao = "primeira_bola_animada";
+          else if (j == 14)
                animacao = "ultima_bola_animada";
-          else 
+          else
                animacao = "bola_animada";
-          
+
           bola.classList.add(animacao);
 
           await new Promise((resolve) => setTimeout(resolve, 100));
 
-          if (j == 2){
+          if (j == 2) {
                bola.innerText = numeroAleatorio
-          } else { 
+          } else {
                bola.innerText = gerarNumeroAleatorio();
           }
 
@@ -36,7 +36,7 @@ async function sortearMegaSena() {
 
                do {
                     numeroAleatorio = gerarNumeroAleatorio();
-               } while (numeroExisteNoArray(numerosAleatorios, numeroAleatorio));
+               } while (numerosAleatorios.includes(numeroAleatorio));
 
                numerosAleatorios.push(numeroAleatorio);
                index++;
@@ -45,7 +45,7 @@ async function sortearMegaSena() {
           numerosAleatorios = ordenarEmOrdemCrescente(numerosAleatorios);
 
           for (let i in numerosAleatorios) {
-               for (let j = 0; j < 3; j++){
+               for (let j = 0; j < 3; j++) {
                     await animarBola(j, BOLAS_DOM[i], numerosAleatorios[i]);
                }
           }
@@ -61,14 +61,6 @@ function gerarNumeroAleatorio() {
           numeroAleatorio = "0" + numeroAleatorio;
 
      return numeroAleatorio;
-}
-
-function numeroExisteNoArray(array, numero) {
-     for (let i = 0; i < array.length; i++)
-          if (array[i] == numero)
-               return true;
-
-     return false;
 }
 
 function ordenarEmOrdemCrescente(numerosArray) {
