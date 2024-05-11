@@ -57,12 +57,14 @@ function imparOuPar() {
      let resultado = usuario.valor + bot.valor;
      resultadoDOM.innerText = resultado;
 
-     if (usuario.posicionamento === "par" && resultado % 2 === 0) {
+     if (usuario.posicionamento === "par" && resultado % 2 === 0 ||
+          usuario.posicionamento === "impar" && resultado % 2 !== 0
+     ) {
           tituloGameDOM.innerText = "Você venceu! Parabéns";
-     } else if (usuario.posicionamento === "impar" && resultado % 2 !== 0) {
-          tituloGameDOM.innerText = "Você venceu! Parabéns!";
+          atualizarVitorias(localStorage.getItem("vitorias") ? Number(localStorage.getItem("vitorias")) + 1 : 0);
      } else {
           tituloGameDOM.innerText = "Eu venci! Tente novamente!";
+          atualizarDerrotas(localStorage.getItem("derrotas") ? Number(localStorage.getItem("derrotas")) + 1 : 0);
      }
 
      for (let i in imagensMao) {
@@ -94,5 +96,25 @@ function checarInput() {
      }
 }
 
+function atualizarVitorias(novoValor) {
+     document.getElementById("qtd_vitorias").innerText = novoValor;
+     localStorage.setItem("vitorias", novoValor);
+}
+
+function atualizarDerrotas(novoValor) {
+     document.getElementById("qtd_derrotas").innerText = novoValor;
+     localStorage.setItem("derrotas", novoValor);
+}
+
+function limparPlacar() {
+     document.getElementById("qtd_vitorias").innerText = 0;
+     localStorage.setItem("vitorias", 0);
+     document.getElementById("qtd_derrotas").innerText = 0;
+     localStorage.setItem("derrotas", 0);
+}
+
+atualizarVitorias(localStorage.getItem("vitorias") ? Number(localStorage.getItem("vitorias")) : 0);
+atualizarDerrotas(localStorage.getItem("derrotas") ? Number(localStorage.getItem("derrotas")) : 0);
 document.getElementById("inp_numero").addEventListener("change", checarInput);
 document.getElementById("btn_jogar").addEventListener("click", imparOuPar);
+document.getElementById("btn_limpar").addEventListener("click", limparPlacar);

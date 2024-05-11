@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="../styles/style.css" />
 		<link rel="stylesheet" href="../styles/impar_ou_par.css" />
 		<link rel="stylesheet" href="../styles/portrait.css" />
+		<script type="text/javascript" src="../javascript/placar.js" defer></script>
 		<script
 			type="text/javascript"
 			src="../javascript/impar_ou_par.js"
@@ -26,6 +27,33 @@
 				Escolha uma opção e um número para jogar!
 			</h2>
 		</header>
+
+		<aside class="placar placar_desativado">
+			<div>
+				<table class="tabela">
+					<thead>
+						<tr>
+							<th colspan="2" class="tabela_titulo">Placar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>Vitórias</th>
+							<td id="qtd_vitorias">0</td>
+						</tr>
+
+						<tr>
+							<th>Derrotas</th>
+							<td id="qtd_derrotas">0</td>
+						</tr>
+						<tr>
+							<td colspan="2"><button id="btn_limpar">Limpar</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="seta__placar seta_desativada"><p class="seta">&gt;</p></div>
+		</aside>
 
 		<main class="conteudo">
 			<section class="form">

@@ -119,6 +119,10 @@ td {
      left: 16%;
 }
 
+.seta_ativada > .seta {
+	rotate: 180deg;
+}
+
 .seta_desativada {
      right: 50%;
 }
