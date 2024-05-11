@@ -1,8 +1,21 @@
 "use strict";
 
+const sorteiosDOM = document.getElementById("qtd_sorteios");
+let sorteios = localStorage.getItem("sorteios") ? localStorage.getItem("sorteios") : 0;
+sorteiosDOM.innerText = sorteios;
+
 document.getElementById("btn_sortear").addEventListener("click", sortearMegaSena);
+document.getElementById("btn_limpar").addEventListener("click", () => {
+     sorteios = 0;
+     sorteiosDOM.innerText = sorteios;
+     localStorage.setItem("sorteios", sorteios);
+});
 
 async function sortearMegaSena() {
+     sorteios++;
+     localStorage.setItem("sorteios", sorteios);
+     sorteiosDOM.innerText = localStorage.getItem("sorteios");
+
      let numerosAleatorios = [];
      const BOLAS_DOM = document.getElementsByClassName("numero_bola");
 
