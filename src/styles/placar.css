@@ -1,0 +1,140 @@
+.placar {
+	position: fixed;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	bottom: 50%;
+     background-color: lightgray;
+	border: 1px solid darkgray;
+	border-left: none;
+	border-top-right-radius: 2.5%;
+	border-bottom-right-radius: 2.5%;
+	padding: 1rem;
+	font-family: "Roboto", sans-serif;
+}
+
+.placar, .placar * {
+	transition: 150ms;
+}
+
+table.tabela {
+	display: none;
+}
+
+.placar_desativado {
+	background-color: transparent;
+	border: none;
+}
+
+table,
+thead,
+th,
+tr,
+td {
+	background-color: #fff;
+	text-align: center;
+	padding: 0.5rem 2rem;
+	border: 1px solid rgb(107, 107, 107);
+	font-size: 1.3rem;
+	font-weight: 600;
+	font-family: "Fira Code", sans-serif;
+}
+
+td {
+	font-family: "Fira Code", monospace;
+}
+
+.tabela_titulo {
+	background-color: var(--cor_principal);
+	color: #fff;
+	font-weight: 800;
+	font-family: "Fira Code", sans-serif;
+}
+
+#btn_limpar {
+	width: 100%;
+	height: 100%;
+	padding: 0.5rem;
+	font-size: 1rem;
+	font-weight: 600;
+	color: #ffffff;
+	background-color: rgb(131, 143, 156);
+	border: 1px solid darkgray;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#btn_limpar:hover {
+	background-color: rgb(148, 161, 174);
+	transition: 100ms;
+}
+
+.seta__placar {
+	font-size: 3rem;
+	font-weight: 800;
+	font-family: "Fira Code", sans-serif;
+	color: var(--cor_principal);
+	background-color: lightgray;
+	padding: 1rem 0.25rem;
+	border: 1px solid darkgray;
+	border-left: none;
+	border-top-right-radius: 100%;
+	border-bottom-right-radius: 100%;
+	cursor: pointer;
+	z-index: 100;
+	position: relative;
+}
+
+.seta::selection {
+	background-color: transparent;
+	color: var(--cor_principal);
+}
+
+.seta__placar:hover {
+	color: #3173ef;
+	transition: 100ms;
+}
+
+@keyframes ativar_seta {
+	0% {
+		rotate: 0deg;
+	}
+
+	100% {
+		rotate: 180deg;
+	}
+}
+
+@keyframes desativar_seta {
+	0% {
+		rotate: 180deg;
+	}
+
+	100% {
+		rotate: 0deg;
+	}
+}
+
+.seta_ativada {
+     left: 16%;
+}
+
+.seta_desativada {
+     right: 50%;
+}
+
+.seta_desativada_animada {
+	animation: desativar_seta 2s infinite ease;
+}
+
+@keyframes ativar_tabela {
+	0% {
+		display: block;
+		translate: 0px 0px;
+	}
+
+	100% {
+		display: block;
+		translate: 100px 0px;
+	}
+}
