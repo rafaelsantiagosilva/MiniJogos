@@ -5,6 +5,11 @@ const VITORIA = 0;
 const DERROTA = 1;
 const EMPATE = 2;
 
+atualizarVitorias(localStorage.getItem("vitorias") ? Number(localStorage.getItem("vitorias")) : 0);
+atualizarDerrotas(localStorage.getItem("derrotas") ? Number(localStorage.getItem("derrotas")) : 0);
+atualizarEmpates(localStorage.getItem("empates") ? Number(localStorage.getItem("empates")) : 0);
+
+document.getElementById("btn_limpar").addEventListener("click", limparPlacar);
 for (let i in opcoes) {
      opcoes[i].addEventListener("click", () => {
           let opcao = opcoes[i];
@@ -13,11 +18,11 @@ for (let i in opcoes) {
                if (opcoes[j] != opcao) {
                     opcoes[j].style.boxShadow = "3px 3px 9px 3px rgba(0, 0, 0, 0.336)";
                     opcoes[j].style.border = "none";
+               } else {
+                    opcoes[i].style.boxShadow = "none";
+                    opcoes[i].style.border = "6px solid #1850b9";
+                    pedraPapelTesoura(opcoes[i].id);
                }
-
-               opcoes[i].style.boxShadow = "none";
-               opcoes[i].style.border = "6px solid #1850b9";
-               pedraPapelTesoura(opcoes[i].id);
           }
      });
 }
@@ -31,16 +36,21 @@ function pedraPapelTesoura(jogadaDoUsuario) {
      imgUsuario.setAttribute("src", `${CAMINHO_DAS_IMAGENS}${jogadaDoUsuario}.png`);
      imgBot.setAttribute("src", `${CAMINHO_DAS_IMAGENS}${jogadaDoBot}.png`);
 
-     if (jogadaDoUsuario == jogadaDoBot)
+     if (jogadaDoUsuario == jogadaDoBot) {
           formatarResultado(EMPATE, jogadaDoUsuario, jogadaDoBot);
-     else if (
+          atualizarEmpates(localStorage.getItem("empates") ? Number(localStorage.getItem("empates")) + 1 : 0);
+     } else if (
           jogadaDoUsuario == "pedra" && jogadaDoBot == "tesoura" ||
           jogadaDoUsuario == "papel" && jogadaDoBot == "pedra" ||
           jogadaDoUsuario == "tesoura" && jogadaDoBot == "papel"
-     )
+     ) {
           formatarResultado(VITORIA, jogadaDoUsuario, jogadaDoBot);
-     else
+          atualizarVitorias(localStorage.getItem("vitorias") ? Number(localStorage.getItem("vitorias")) + 1 : 0);
+     }
+     else {
           formatarResultado(DERROTA, jogadaDoUsuario, jogadaDoBot);
+          atualizarDerrotas(localStorage.getItem("derrotas") ? Number(localStorage.getItem("derrotas")) + 1 : 0);
+     }
 }
 
 function gerarJogadaDoBot() {
@@ -85,4 +95,27 @@ function formatarResultado(resultado, jogadaDoUsuario, jogadaDoBot) {
                console.error("ERRO: Verifique o código e veja se somente os valores da variáveis 'VITORIA', 'DERROTA' ou 'EMPATE' estão sendo passados.");
                break;
      }
+}
+
+function atualizarValorLocalStorage(nomeValor, novoValor) {
+     document.getElementById(`qtd_${nomeValor}`).innerText = novoValor;
+     localStorage.setItem(nomeValor, novoValor);
+}
+
+function atualizarVitorias(novoValor) {
+     atualizarValorLocalStorage("vitorias", novoValor);
+}
+
+function atualizarDerrotas(novoValor) {
+     atualizarValorLocalStorage("derrotas", novoValor);
+}
+
+function atualizarEmpates(novoValor) {
+     atualizarValorLocalStorage("empates", novoValor);
+}
+
+function limparPlacar() {
+     atualizarVitorias(0);
+     atualizarDerrotas(0);
+     atualizarEmpates(0);
 }
