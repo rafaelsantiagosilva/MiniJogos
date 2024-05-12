@@ -172,7 +172,7 @@ function todosOsQuadradosPreenchidos() {
         }
     }
 
-    if (qtdQuadradosPreenchidos == 9) 
+    if (qtdQuadradosPreenchidos == 9)
         return true;
 
     return false;
@@ -218,6 +218,9 @@ function verificarMelhorJogadaDoBot() {
     // Função que verifica qual a melhor jogada possível para o bot, com prioridade para vitória:
     // - Para vencer, primeiramente
     // - Para impedir que o usuário vença, secundariamente
+
+    if (!simbolos.includes(textosDosQuadradosDOM[4].innerText))
+        return 4;
 
     for (let j = simbolos.length; j >= 0; j--) {
         for (let i = 0; i < textosDosQuadradosDOM.length; i++) {
