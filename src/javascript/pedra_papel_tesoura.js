@@ -5,9 +5,9 @@ const VITORIA = 0;
 const DERROTA = 1;
 const EMPATE = 2;
 
-atualizarVitorias(localStorage.getItem("vitorias") ? Number(localStorage.getItem("vitorias")) : 0);
-atualizarDerrotas(localStorage.getItem("derrotas") ? Number(localStorage.getItem("derrotas")) : 0);
-atualizarEmpates(localStorage.getItem("empates") ? Number(localStorage.getItem("empates")) : 0);
+atualizarVitorias(localStorage.getItem("vitoriasPPT") ? Number(localStorage.getItem("vitoriasPPT")) : 0);
+atualizarDerrotas(localStorage.getItem("derrotasPPT") ? Number(localStorage.getItem("derrotasPPT")) : 0);
+atualizarEmpates(localStorage.getItem("empatesPPT") ? Number(localStorage.getItem("empatesPPT")) : 0);
 
 document.getElementById("btn_limpar").addEventListener("click", limparPlacar);
 for (let i in opcoes) {
@@ -38,18 +38,18 @@ function pedraPapelTesoura(jogadaDoUsuario) {
 
      if (jogadaDoUsuario == jogadaDoBot) {
           formatarResultado(EMPATE, jogadaDoUsuario, jogadaDoBot);
-          atualizarEmpates(localStorage.getItem("empates") ? Number(localStorage.getItem("empates")) + 1 : 0);
+          atualizarEmpates(localStorage.getItem("empates") ? Number(localStorage.getItem("empatesPPT")) + 1 : 0);
      } else if (
           jogadaDoUsuario == "pedra" && jogadaDoBot == "tesoura" ||
           jogadaDoUsuario == "papel" && jogadaDoBot == "pedra" ||
           jogadaDoUsuario == "tesoura" && jogadaDoBot == "papel"
      ) {
           formatarResultado(VITORIA, jogadaDoUsuario, jogadaDoBot);
-          atualizarVitorias(localStorage.getItem("vitorias") ? Number(localStorage.getItem("vitorias")) + 1 : 0);
+          atualizarVitorias(localStorage.getItem("vitorias") ? Number(localStorage.getItem("vitoriasPPT")) + 1 : 0);
      }
      else {
           formatarResultado(DERROTA, jogadaDoUsuario, jogadaDoBot);
-          atualizarDerrotas(localStorage.getItem("derrotas") ? Number(localStorage.getItem("derrotas")) + 1 : 0);
+          atualizarDerrotas(localStorage.getItem("derrotas") ? Number(localStorage.getItem("derrotasPPT")) + 1 : 0);
      }
 }
 
@@ -99,7 +99,7 @@ function formatarResultado(resultado, jogadaDoUsuario, jogadaDoBot) {
 
 function atualizarValorLocalStorage(nomeValor, novoValor) {
      document.getElementById(`qtd_${nomeValor}`).innerText = novoValor;
-     localStorage.setItem(nomeValor, novoValor);
+     localStorage.setItem(`${nomeValor}PPT`, novoValor);
 }
 
 function atualizarVitorias(novoValor) {

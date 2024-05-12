@@ -5,6 +5,12 @@ const textosDosQuadradosDOM = document.querySelectorAll(".quadrado span");
 const btnResetarDOM = document.getElementById("btn_resetar");
 
 btnResetarDOM.addEventListener("click", resetar);
+document.getElementById("btn_limpar").addEventListener("click", limparPlacar);
+
+atualizarVitorias(localStorage.getItem("vitoriasJV") ? Number(localStorage.getItem("vitoriasJV")) : 0);
+atualizarDerrotas(localStorage.getItem("derrotasJV") ? Number(localStorage.getItem("derrotasJV")) : 0);
+atualizarEmpates(localStorage.getItem("empatesJV") ? Number(localStorage.getItem("empatesJV")) : 0);
+
 
 const simbolos = ["X", "O"];
 let algumJogadorVenceu = false;
@@ -336,12 +342,15 @@ function formatarResultado(vencedor) {
     switch (vencedor) {
         case "Usuário":
             tituloDOM.innerText = "Você venceu! Parabéns! Vamos de novo?";
+            atualizarVitorias(localStorage.getItem("vitoriasJV") ? Number(localStorage.getItem("vitoriasJV")) + 1 : 0);
             break;
         case "Computador":
             tituloDOM.innerText = "Eu venci! Quer tentar uma revanche?";
+            atualizarDerrotas(localStorage.getItem("derrotasJV") ? Number(localStorage.getItem("derrotasJV")) + 1 : 0);
             break;
         case "Empate":
             tituloDOM.innerText = "Ahhh, deu empate! Vamos de novo?";
+            atualizarEmpates(localStorage.getItem("empatesJV") ? Number(localStorage.getItem("empatesJV")) + 1 : 0);
             break;
     }
 }
@@ -384,4 +393,27 @@ function resetar() {
     habilitarQuadrados();
     btnResetarDOM.classList.add("none");
     document.getElementById("game__titulo").innerText = "Clique no jogo para jogar!";
+}
+
+function atualizarValorLocalStorage(nomeValor, novoValor) {
+    document.getElementById(`qtd_${nomeValor}`).innerText = novoValor;
+    localStorage.setItem(`${nomeValor}JV`, novoValor);
+}
+
+function atualizarVitorias(novoValor) {
+    atualizarValorLocalStorage("vitorias", novoValor);
+}
+
+function atualizarDerrotas(novoValor) {
+    atualizarValorLocalStorage("derrotas", novoValor);
+}
+
+function atualizarEmpates(novoValor) {
+    atualizarValorLocalStorage("empates", novoValor);
+}
+
+function limparPlacar() {
+    atualizarVitorias(0);
+    atualizarDerrotas(0);
+    atualizarEmpates(0);
 }

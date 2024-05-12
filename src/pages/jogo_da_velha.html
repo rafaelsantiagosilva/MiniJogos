@@ -14,6 +14,11 @@
 		<link rel="stylesheet" href="../styles/portrait.css" />
 		<script
 			type="text/javascript"
+			src="../javascript/placar.js"
+			defer
+		></script>
+		<script
+			type="text/javascript"
 			src="../javascript/jogo_da_velha.js"
 			defer
 		></script>
@@ -26,6 +31,36 @@
 				Jogue o clássico jogo velha com o computador!
 			</h2>
 		</header>
+
+		<aside class="placar placar_desativado">
+			<div>
+				<table class="tabela">
+					<thead>
+						<tr>
+							<th colspan="2" class="tabela_titulo">Placar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>Vitórias</th>
+							<td id="qtd_vitorias">0</td>
+						</tr>
+						<tr>
+							<th>Derrotas</th>
+							<td id="qtd_derrotas">0</td>
+						</tr>
+						<tr>
+							<th>Empates</th>
+							<td id="qtd_empates">0</td>
+						</tr>
+						<tr>
+							<td colspan="2"><button id="btn_limpar">Limpar</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="seta__placar seta_desativada"><p class="seta">&gt;</p></div>
+		</aside>
 
 		<main class="conteudo">
 			<header class="conteudo__header">

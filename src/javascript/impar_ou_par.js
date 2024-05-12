@@ -61,10 +61,10 @@ function imparOuPar() {
           usuario.posicionamento === "impar" && resultado % 2 !== 0
      ) {
           tituloGameDOM.innerText = "Você venceu! Parabéns";
-          atualizarVitorias(localStorage.getItem("vitorias") ? Number(localStorage.getItem("vitorias")) + 1 : 0);
+          atualizarVitorias(localStorage.getItem("vitorias") ? Number(localStorage.getItem("vitoriasIP")) + 1 : 0);
      } else {
           tituloGameDOM.innerText = "Eu venci! Tente novamente!";
-          atualizarDerrotas(localStorage.getItem("derrotas") ? Number(localStorage.getItem("derrotas")) + 1 : 0);
+          atualizarDerrotas(localStorage.getItem("derrotas") ? Number(localStorage.getItem("derrotasIP")) + 1 : 0);
      }
 
      for (let i in imagensMao) {
@@ -98,23 +98,23 @@ function checarInput() {
 
 function atualizarVitorias(novoValor) {
      document.getElementById("qtd_vitorias").innerText = novoValor;
-     localStorage.setItem("vitorias", novoValor);
+     localStorage.setItem("vitoriasIP", novoValor);
 }
 
 function atualizarDerrotas(novoValor) {
      document.getElementById("qtd_derrotas").innerText = novoValor;
-     localStorage.setItem("derrotas", novoValor);
+     localStorage.setItem("derrotasIP", novoValor);
 }
 
 function limparPlacar() {
      document.getElementById("qtd_vitorias").innerText = 0;
-     localStorage.setItem("vitorias", 0);
+     localStorage.setItem("vitoriasIP", 0);
      document.getElementById("qtd_derrotas").innerText = 0;
-     localStorage.setItem("derrotas", 0);
+     localStorage.setItem("derrotasIP", 0);
 }
 
-atualizarVitorias(localStorage.getItem("vitorias") ? Number(localStorage.getItem("vitorias")) : 0);
-atualizarDerrotas(localStorage.getItem("derrotas") ? Number(localStorage.getItem("derrotas")) : 0);
+atualizarVitorias(localStorage.getItem("vitoriasIP") ? Number(localStorage.getItem("vitoriasIP")) : 0);
+atualizarDerrotas(localStorage.getItem("derrotasIP") ? Number(localStorage.getItem("derrotasIP")) : 0);
 document.getElementById("inp_numero").addEventListener("change", checarInput);
 document.getElementById("btn_jogar").addEventListener("click", imparOuPar);
 document.getElementById("btn_limpar").addEventListener("click", limparPlacar);
