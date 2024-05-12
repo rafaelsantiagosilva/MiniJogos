@@ -1,4 +1,7 @@
 "use strict";
+
+gerarPokemon();
+
 const palavraDOM = document.getElementById("palavra");
 const partesDoCorpoDOM = document.getElementsByClassName("parte-do-corpo");
 
@@ -10,10 +13,21 @@ btnChuteDOM.addEventListener("click", chutar);
 const inputChuteDOM = document.getElementById("inpChute");
 inputChuteDOM.addEventListener("change", verificarInput)
 
+const btnResetarDOM = document.getElementById("btn_resetar");
+btnResetarDOM.addEventListener("click", jogarNovamente);
+
+
+document.getElementById("btn_limpar").addEventListener("click", limparPlacar);
+
+atualizarVitorias(localStorage.getItem("vitoriasJFP") ? Number(localStorage.getItem("vitoriasJFP")) : 0);
+atualizarDerrotas(localStorage.getItem("derrotasJFP") ? Number(localStorage.getItem("derrotasJFP")) : 0);
+
 let pokemon;
 let palavraResposta = "";
 let dicas = [];
 let erros = 0;
+
+const dicasTabelaDOM = document.getElementsByClassName("dica");
 
 function gerarIdAleatorioPokemon(max, min) {
      return Math.round(Math.random() * (max - min) + min);
@@ -47,15 +61,12 @@ async function gerarPokemon() {
      }
 
      palavraResposta = palavraResposta.toUpperCase();
-     dicas[0] = pokemon.types[0].type.name + (pokemon.types[1] ? `, ${pokemon.types[1].type.name}` : "")
-     dicas[1] = pegarGeracao(Number(pokemon.id));
-     dicas[2] = pokemon.id;
+     dicas[0] = pokemon.id;
+     dicas[1] = pokemon.types[0].type.name + (pokemon.types[1] ? `, ${pokemon.types[1].type.name}` : "");
+     dicas[2] = pegarGeracao(Number(pokemon.id));
 
-     console.log("Pokemon: " + palavraResposta);
-     console.log("Dica 1: " + dicas[0]);
-     console.log("Dica 2: " + dicas[1]);
-     console.log("Dica 3: " + dicas[2]);
-
+     for (let i = 0; i < dicasTabelaDOM.length; i++)
+          dicasTabelaDOM.innerText = "-----------";
 }
 
 function pegarGeracao(pokemonId) {
@@ -142,16 +153,51 @@ function chutar() {
      } else {
           partesDoCorpoDOM[erros].style.visibility = "visible";
           erros++;
-          console.log("Erros: " + erros);
+
+          if (erros == 2)
+               dicasTabelaDOM[0].innerText = "ID: " + dicas[0];
+          else if (erros == 3)
+               dicasTabelaDOM[1].innerText = "Tipos: " + dicas[1];
+          else if (erros == 4)
+               dicasTabelaDOM[2].innerText = dicas[2];
      }
 
      if (palavraDOM.innerText == palavraResposta) {
           tituloDOM.innerText = "Parabéns! Você acertou!";
+          dicasTabelaDOM[0].innerText = "Tipos: " + dicas[0];
+          dicasTabelaDOM[1].innerText = dicas[1];
+          dicasTabelaDOM[2].innerText = "ID: " + dicas[2];
+          atualizarVitorias(localStorage.getItem("vitoriasJFP") ? Number(localStorage.getItem("vitoriasJFP")) + 1 : 0);
           btnChuteDOM.style.display = "none";
+          btnResetarDOM.style.display = "block";
           return;
      } else if (erros == 6) {
           tituloDOM.innerText = "Que pena! Você perdeu! A resposta era: " + palavraResposta;
+          atualizarDerrotas(localStorage.getItem("derrotasJFP") ? Number(localStorage.getItem("derrotasJFP")) + 1 : 0);
           btnChuteDOM.style.display = "none";
+          btnResetarDOM.style.display = "block";
           return;
      }
+}
+
+function atualizarValorLocalStorage(nomeValor, novoValor) {
+     document.getElementById(`qtd_${nomeValor}`).innerText = novoValor;
+     localStorage.setItem(`${nomeValor}JFP`, novoValor);
+}
+
+function atualizarVitorias(novoValor) {
+     atualizarValorLocalStorage("vitorias", novoValor);
+}
+
+function atualizarDerrotas(novoValor) {
+     atualizarValorLocalStorage("derrotas", novoValor);
+}
+
+function limparPlacar() {
+     atualizarVitorias(0);
+     atualizarDerrotas(0);
+}
+
+function jogarNovamente() {
+     location.reload();
 }

@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="../styles/style.css" />
 		<link rel="stylesheet" href="../styles/jogo_da_forca.css" />
 		<link rel="stylesheet" href="../styles/portrait.css" />
+		<script src="../javascript/placar.js" type="text/javascript" defer></script>
 		<script
 			type="text/javascript"
 			src="../javascript/jogo_da_forca.js"
@@ -20,7 +21,7 @@
 		></script>
 	</head>
 
-	<body onload="gerarPokemon()">
+	<body>
 		<a href="../../index.html"><button class="btn_back"></button></a>
 		<header class="header_principal">
 			<h1 class="titulo_principal">Jogo da Forca</h1>
@@ -29,9 +30,62 @@
 			</h2>
 		</header>
 
+		<aside class="placar placar_desativado">
+			<div>
+				<table class="tabela tabela_dicas">
+					<thead>
+						<tr>
+							<th colspan="2" class="tabela_titulo">Placar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>Vitórias</th>
+							<td id="qtd_vitorias">0</td>
+						</tr>
+						<tr>
+							<th>Derrotas</th>
+							<td id="qtd_derrotas">0</td>
+						</tr>
+						<tr>
+							<td colspan="2"><button id="btn_limpar">Limpar</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="seta__placar seta_desativada"><p class="seta">&gt;</p></div>
+		</aside>
+
 		<main class="conteudo">
 			<div class="game">
 				<h2 class="game__titulo" id="game__titulo">Vamos jogar!</h2>
+				<button class="btn btn_sm none" id="btn_resetar">Jogar novamente</button>
+				<section class="dicas">
+					<div>
+						<table class="tabela_dicas">
+							<thead>
+								<tr>
+									<th colspan="2" class="tabela_titulo">Dicas</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>Dica 1</th>
+									<td colspan="" class="dica">--------</td>
+								</tr>
+								<tr>
+									<th>Dica 2</th>
+									<td colspan="" class="dica">--------</td>
+								</tr>
+	
+								<tr>
+									<th>Dica 3</th>
+									<td colspan="" class="dica">--------</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
 				<section class="form">
 					<div>
 						<label for="inpChute">Digite uma letra: </label>

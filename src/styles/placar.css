@@ -11,6 +11,7 @@
 	border-bottom-right-radius: 2.5%;
 	padding: 1rem;
 	font-family: "Roboto", sans-serif;
+	z-index: 999;
 }
 
 .placar, .placar * {
