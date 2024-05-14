@@ -61,10 +61,10 @@ function imparOuPar() {
           usuario.posicionamento === "impar" && resultado % 2 !== 0
      ) {
           tituloGameDOM.innerText = "Você venceu! Parabéns";
-          atualizarVitorias(localStorage.getItem("vitorias") ? Number(localStorage.getItem("vitoriasIP")) + 1 : 0);
+          atualizarVitorias(localStorage.getItem("vitoriasIP") ? Number(localStorage.getItem("vitoriasIP")) + 1 : 0);
      } else {
           tituloGameDOM.innerText = "Eu venci! Tente novamente!";
-          atualizarDerrotas(localStorage.getItem("derrotas") ? Number(localStorage.getItem("derrotasIP")) + 1 : 0);
+          atualizarDerrotas(localStorage.getItem("derrotasIP") ? Number(localStorage.getItem("derrotasIP")) + 1 : 0);
      }
 
      for (let i in imagensMao) {

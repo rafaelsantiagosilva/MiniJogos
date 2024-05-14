@@ -38,18 +38,18 @@ function pedraPapelTesoura(jogadaDoUsuario) {
 
      if (jogadaDoUsuario == jogadaDoBot) {
           formatarResultado(EMPATE, jogadaDoUsuario, jogadaDoBot);
-          atualizarEmpates(localStorage.getItem("empates") ? Number(localStorage.getItem("empatesPPT")) + 1 : 0);
+          atualizarEmpates(localStorage.getItem("empatesPPT") ? Number(localStorage.getItem("empatesPPT")) + 1 : 0);
      } else if (
           jogadaDoUsuario == "pedra" && jogadaDoBot == "tesoura" ||
           jogadaDoUsuario == "papel" && jogadaDoBot == "pedra" ||
           jogadaDoUsuario == "tesoura" && jogadaDoBot == "papel"
      ) {
           formatarResultado(VITORIA, jogadaDoUsuario, jogadaDoBot);
-          atualizarVitorias(localStorage.getItem("vitorias") ? Number(localStorage.getItem("vitoriasPPT")) + 1 : 0);
+          atualizarVitorias(localStorage.getItem("vitoriasPPT") ? Number(localStorage.getItem("vitoriasPPT")) + 1 : 0);
      }
      else {
           formatarResultado(DERROTA, jogadaDoUsuario, jogadaDoBot);
-          atualizarDerrotas(localStorage.getItem("derrotas") ? Number(localStorage.getItem("derrotasPPT")) + 1 : 0);
+          atualizarDerrotas(localStorage.getItem("derrotasPPT") ? Number(localStorage.getItem("derrotasPPT")) + 1 : 0);
      }
 }
 
